@@ -1,0 +1,20 @@
+      "location": ["Location", "Gmail"],
+        "selectDay":  ["Date", "2013-06-04"],
+        "catalog": ["In My Collection : ", "Video Game"],
+        "titleName": ["Entertainment Title : ", "Ninja One"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "No"],
+        "coi": ["Cost of Item : ", "5"],
+        "comments": ["Comments :", "n/a"]
+    },
+    "entry20": {
+        "location": ["Location", "Hotmail"],
+        "selectDay":  ["Date", "2013-01-19"],
+        "catalog": ["In My Collection : ", "VHS"],
+        "titleName": ["Entertainment Title : ", "ET"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "Yes"],
+        "coi": ["Cost of Item : ", "15"],
+        "comments": ["Comments :", "Classic"]
+    },
+}

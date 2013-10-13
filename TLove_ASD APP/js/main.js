@@ -61,19 +61,19 @@ $("#addEntItem").on('pageinit', function(){
 		
 			
 		// Load JSON Data
-		$('loadJSON').on('click', function(){
+		//$('loadJSON').on('click', function(){
 			$.ajax({
 				url: 'js/data.json',
 				type: 'GET',
 				dataType: 'json',
-				success: function(data){
-					console.log(data);
+				success: function(data, status){
+					console.log(status, data);
 				},
 				error: function(error, parseerror){
 					console.log(error, parseerror);
 				}
 			});
-		});
+	//	});
 	
 	
 		// Load XML Data
@@ -118,7 +118,7 @@ $("#addEntItem").on('pageinit', function(){
 	         }
 	     };
 	
-/*		
+		
 		// Error Link / Form Validation
 		var myEntForm = $('#entForm');
 				entErrorLink = $('#entErrorLink');
@@ -141,7 +141,7 @@ $("#addEntItem").on('pageinit', function(){
 			 	}
 			});
 		
-  */
+  
 	
 }); // Form Page End 
 

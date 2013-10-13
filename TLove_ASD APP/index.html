@@ -133,7 +133,7 @@
 		    		</div> <!--notes end -->
 		    			
 		    		<div data-role="fieldcontain"> 
-		    		    <a id="submit" href="#">Add New Title</a>
+		    		    <input type="submit" value="Add New Title" />
 		    		    <br /> <br />
 		    		    <input type="reset" value="Reset" data-mini="true" />
 		    		</div>	
@@ -146,7 +146,7 @@
 				<div data-role="navbar">
 					<ul>
 					    <li><a href="#home" data-icon="home" class="ui--btn-active" data-iconpos="top">Home</a></li>
-					    <li><a href="#addEntItem" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Item</a></li>
+					    <li><a href="#addEntItem" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add/Edit Item</a></li>
 					    <li><a href="#browse" data-icon="grid" class="ui--btn-active" data-iconpos="top">Browse</a></li>
 					</ul>    
 			    </div> <!-- navbar -->
@@ -159,6 +159,9 @@
 			
 			<section data-role="content">
 				 <input type="search" name="search" id="appSearch1" placeholder=" Search" data-mini="true" />
+				 <br />
+				 <a href="data.json" data-role="button" data-icon="arrow-r" data-iconpos="right" data-mini="true">Load JSON Data</a>
+		   		 <a href="data.xml" data-role="button" data-icon="arrow-r" data-iconpos="right" data-mini="true">Load XML Data</a>
 				<p> </p>	
 			</section> <!--content end-->
 			
