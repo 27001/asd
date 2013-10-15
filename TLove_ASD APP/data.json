@@ -1,0 +1,205 @@
+// Tai Love
+// ASD 1310
+
+var jsonData = {
+    "entry1": {
+        "location": ["Location", "Gmail"],
+        "selectDay": ["Date", "2013-07-25"],
+        "catalog": ["In My Collection : ", "DVD"],
+        "titleName": ["Entertainment Title : ", "ABC"],
+        "condition": ["Is This Item Brand New? : ", "Yes"],
+        "favorite": ["Is This a Favorite? : ", "Yes"],
+        "coi": ["Cost of Item : ", "60"],
+        "comments": ["Comments :", "VFW"]
+    },
+    "entry2": {
+        "location": ["Location", "Hotmail"],
+        "selectDay": ["Date", "2013-07-25"],
+        "catalog": ["In My Collection : ", "CD"],
+        "titleName": ["Entertainment Title : ", "The One"],
+        "condition": ["Is This Item Brand New? : ", "Yes"],
+        "favorite": ["Is This a Favorite? : ", "No"],
+        "coi": ["Cost of Item : ", "30"],
+        "comments": ["Comments :", "Book on CD"]
+    },
+    "entry3": {
+        "location": ["Location", "iCloud"],
+        "selectDay":  ["Date", "2013-07-25"],
+        "catalog": ["In My Collection : ", "DVD"],
+        "titleName": ["Entertainment Title : ", "Monk"],
+        "condition": ["Is This Item Brand New? : ", "Yes"],
+        "favorite": ["Is This a Favorite? : ", "I don't know, yet"],
+        "coi": ["Cost of Item : ", "150"],
+        "comments": ["Comments :", "Luv Monk!"]
+    },
+    "entry4": {
+        "location": ["Location", "Phone"],
+        "selectDay":  ["Date", "2013-07-25"],
+        "catalog": ["In My Collection : ", "Book"],
+        "titleName": ["Entertainment Title : ", "Hey friend"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "I don't know, yet"],
+        "coi": ["Cost of Item : ", "170"],
+        "comments": ["Comments :", "OneLove"]
+    },
+    "entry5": {
+       "location": ["Location", "Gmail"],
+       "selectDay":  ["Date", "2013-07-30"],
+        "catalog": ["In My Collection : ", "VHS"],
+        "titleName": ["Entertainment Title : ", "My buddy"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "Yes"],
+        "coi": ["Cost of Item : ", "4"],
+        "comments": ["Comments :", "child series"]
+    },
+    "entry6": {
+        "location": ["Location", "Hotmail"],
+     	"selectDay":  ["Date", "2013-07-20"],
+        "catalog": ["In My Collection : ", "Book"],
+        "titleName": ["Entertainment Title : ", "statistics"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "I don't know, yet"],
+        "coi": ["Cost of Item : ", "300"],
+        "comments": ["Comments :", "n/a"]
+    },
+    "entry7": {
+        "location": ["Location", "Phone"],
+        "selectDay":  ["Date", "2013-07-21"],
+        "catalog": ["In My Collection : ", "Video Game"],
+        "titleName": ["Entertainment Title : ", "Madden 2007"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "Yes"],
+        "coi": ["Cost of Item : ", "13"],
+        "comments": ["Comments :", "for the kid"]
+    },
+    "entry8": {
+        "location": ["Location", "iCloud"],
+        "selectDay":  ["Date", "2013-07-25"],
+        "catalog": ["In My Collection : ", "Book"],
+        "titleName": ["Entertainment Title : ", "Hey dude"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "I don't know, yet"],
+        "coi": ["Cost of Item : ", "5"],
+        "comments": ["Comments :", " "]
+    },
+    "entry9": {
+        "location": ["Location", "Phone"],
+        "selectDay":  ["Date", "2013-07-25"],
+        "catalog": ["In My Collection : ", "CD"],
+        "titleName": ["Entertainment Title : ", "Lookout"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "No"],
+        "coi": ["Cost of Item : ", "16"],
+        "comments": ["Comments :", "VGMX"]
+    },
+    "entry10": {
+        "location": ["Location", "iCloud"],
+        "selectDay":  ["Date", "2013-07-05"],
+        "catalog": ["In My Collection : ", "Other"],
+        "titleName": ["Entertainment Title : ", "Howdy"],
+        "condition": ["Is This Item Brand New? : ", "Yes"],
+        "favorite": ["Is This a Favorite? : ", "No"],
+        "coi": ["Cost of Item : ", "170"],
+        "comments": ["Comments :", "n/a"]
+    },
+    "entry11": {
+        "location": ["Location", "Phone"],
+        "selectDay":  ["Date", "2013-07-31"],
+        "catalog": ["In My Collection : ", "DVD"],
+        "titleName": ["Entertainment Title : ", "In the Air"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "Yes"],
+        "coi": ["Cost of Item : ", "70"],
+        "comments": ["Comments :", "OneLove"]
+    },
+    "entry12": {
+        "location": ["Location", "Gmail"],
+        "selectDay":  ["Date", "2013-06-25"],
+        "catalog": ["In My Collection : ", "Book"],
+        "titleName": ["Entertainment Title : ", "Hey dude"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "I don't know, yet"],
+        "coi": ["Cost of Item : ", "170"],
+        "comments": ["Comments :", "n/a"]
+    },
+    "entry13": {
+        "location": ["Location", "iCloud"],
+        "selectDay":  ["Date", "2013-07-25"],
+        "catalog": ["In My Collection : ", "Book"],
+        "titleName": ["Entertainment Title : ", "Hey dude"],
+        "condition": ["Is This Item Brand New? : ", "Yes"],
+        "favorite": ["Is This a Favorite? : ", "No"],
+        "coi": ["Cost of Item : ", "1"],
+        "comments": ["Comments :", "n/a"]
+    },
+    "entry14": {
+        "location": ["Location", "Hotmail"],
+        "selectDay":  ["Date", "2013-01-19"],
+        "catalog": ["In My Collection : ", "Video Game"],
+        "titleName": ["Entertainment Title : ", "Spiderman"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "No"],
+        "coi": ["Cost of Item : ", "10"],
+        "comments": ["Comments :", "for the kid"]
+    },
+    "entry15": {
+        "location": ["Location", "Phone"],
+        "selectDay":  ["Date", "2013-03-20"],
+        "catalog": ["In My Collection : ", "DVD"],
+        "titleName": ["Entertainment Title : ", "Hey Dude"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "Yes"],
+        "coi": ["Cost of Item : ", "60"],
+        "comments": ["Comments :", "Luv this one"]
+    },
+    "entry16": {
+        "location": ["Location", "Gmail"],
+        "selectDay":  ["Date", "2013-01-19"],
+        "catalog": ["In My Collection : ", "Video Game"],
+        "titleName": ["Entertainment Title : ", "Mario Brothers"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "Yes"],
+        "coi": ["Cost of Item : ", "75"],
+        "comments": ["Comments :", "Oldie"]
+    },
+    "entry17": {
+        "location": ["Location", "Hotmail"],
+        "selectDay":  ["Date", "2013-05-24"],
+        "catalog": ["In My Collection : ", "CD"],
+        "titleName": ["Entertainment Title : ", "Prince"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "Yes"],
+        "coi": ["Cost of Item : ", "13"],
+        "comments": ["Comments :", "Collector Edition"]
+    },
+   "entry18": {
+        "location": ["Location", "iCloud"],
+        "selectDay":  ["Date", "2013-03-17"],
+        "catalog": ["In My Collection : ", "Book"],
+        "titleName": ["Entertainment Title : ", "Designing Intefaces"],
+        "condition": ["Is This Item Brand New? : ", "Yes"],
+        "favorite": ["Is This a Favorite? : ", "I don't know, yet"],
+        "coi": ["Cost of Item : ", "275"],
+        "comments": ["Comments :", "MiU"]
+    },
+    "entry19": {
+        "location": ["Location", "Gmail"],
+        "selectDay":  ["Date", "2013-06-04"],
+        "catalog": ["In My Collection : ", "Video Game"],
+        "titleName": ["Entertainment Title : ", "Ninja One"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "No"],
+        "coi": ["Cost of Item : ", "5"],
+        "comments": ["Comments :", "n/a"]
+    },
+    "entry20": {
+        "location": ["Location", "Hotmail"],
+        "selectDay":  ["Date", "2013-01-19"],
+        "catalog": ["In My Collection : ", "VHS"],
+        "titleName": ["Entertainment Title : ", "ET"],
+        "condition": ["Is This Item Brand New? : ", "No"],
+        "favorite": ["Is This a Favorite? : ", "Yes"],
+        "coi": ["Cost of Item : ", "15"],
+        "comments": ["Comments :", "Classic"]
+    },
+}

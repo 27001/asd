@@ -7,34 +7,11 @@ $(document).ready(function(){
 // Home Page	
 $("#home").on('pageinit', function(){
 	
-});
+});  // Home Page End
 
 // Form Page
 $("#addEntItem").on('pageinit', function(){
 	
-	
-	var myEntForm = $('#entForm');
-		entErrorLink = $('#entErrorLink');
-		
- 	myEntForm.validate({
- 		invalidHandler: function(form, validator){
- 			entErrorLink.click();
- 			var htmlString = '';
- 			for(var key in validator.submitted){
- 				var label  = $('label[for^="'+ key +'"]').not('[generated]');
- 				var legend = label.closest('fieldset').find('.ui-controlgroup-label');
- 				var theFieldName = legend.length ? legend.text() : label.text();
- 				htmlString += '<li>'+ theFieldName +'</li>';
- 			};
- 			$("#addItem2Errors ul" ).html(htmlString);
- 		},
- 		submitHandler: function(){
-		  var data = myEntForm.serializeArray();
-		  	storeData(data);
-	 	}
-	});
- 	
-
 	// Store Local Data
 	var storeData = function(data, key){
 		
@@ -44,15 +21,15 @@ $("#addEntItem").on('pageinit', function(){
            
             id = key;
         }    
-		
-		localStorage.setItem('saveTo', $('#saveTo'.val());
-		localStorage.setItem('theDate', $('#date'.val());
-		localStorage.setItem('catalog', $('#catalog'.val());
-		localStorage.setItem('titleName', $('#titleName'.val());
-		//localStorage.setItem('radios', $('#saveTo'.val());
-		localStorage.setItem('slider', $('#coi'.val());
-		localStorage.setItem('theCondition', $('#theCondition'.val());
-		localStorage.setItem('textArea', $('#textArea'.val());
+		var detail              = {};
+			detail.saveTo      	= ["Save Info To : ", $('#saveTo').val()];
+			detail.date        	= ["Date : ", $('#date').val()];
+			detail.catalog     	= ["In My Collection : ", $('catalog').val()];
+			detail.titleName  	= ["Entertainment Title : ", $('#titleName').val()];
+			detail.Favorite    	= ["Is This a Favorite? : ",$("input:radio[name=Favorite]:checked").val()];
+			detail.coi         	= ["Cost of Item : ", $('#coi').val()]; 
+			detail.theCondition = ["Is This Item Brand New? : ", $('#theCondition').val()]; 
+			detail.textArea     = ["Notes : ", $('#textArea').val()];
 		
 		 //Save date to loal storage with Stringify to convert object to strings
            localStorage.setItem(id, JSON.stringify(detail));
@@ -60,18 +37,132 @@ $("#addEntItem").on('pageinit', function(){
 	};
 	
 	
-	// Get Local Data
-	var getTheData = function(){ 
-		if (localStorage.length === 0){
-           alert("There is no data in Local Storage, so default data was added.");
-           autoPopulateData();
-        }   
+	
+		// Get Local Data
+		var getTheData = function(){ 
+			if (localStorage.length === 0){
+	           alert("There is no data in Local Storage, so default data was added.");
+	           autoPopulateData();
+	        }   
+			
+		};
 		
-	};
+		
+		// Auto Populate Local Storage
+		var autoPopulateData = function (){
+	        //Actual JSON OBJECT data req.for this to work is coming from json.js
+	          //Store the JO into Local Storage
+	        for(var n in jsonData){
+	            var id = Math.floor(Math.random()*100000001);
+	            localStorage.setItem(id, JSON.stringify(jsonData[n]));
+	        }  
+	        alert("There is no data in Local Storage, so default data was added.");  
+	     };
+		
+			
+		// Load JSON Data
+	//	$('loadJSON').on('click', function(){
+			$.ajax({
+				url: "data.json",
+				type: "GET",
+				dataType: "json",
+				success: function(data, status){
+				//	$('data').append(JSON.stringify(data));
+					console.log(status, data);
+			//	},
+				//error: function(error, parseerror){
+					//console.log(error, parseerror);
+				}
+			});
+	//	});            
+	
+	
+		// Load XML Data
+		$('loadXML').on('click', function(){
+			$.ajax({
+				url: "data.xml",
+				type: "GET",
+				dataType: "xml",
+				success: function(data){
+					console.log(data);
+				},
+				error: function(error, parseerror){
+					console.log	(error, parseerror);
+				}
+			});
+		});
+	
+		
+		// Clear Local Storage
+    	var clearLocalStorage = function (){
+	        if(localStorage.length===0){
+	            alert("There is no data to clear.");
+	        }else{
+	      		localStorage.clear();
+			    alert("All entertainment data will be cleared!");
+			    window.location.reload();
+			    return false;
+			}
+     	};
 	
 	
 	
-	// Form values / submit button
+		// Delete Item
+		 	var deleteTheItem = function (){
+		     	var askQ = confirm("Are you sure you want to delete entry?");
+			        if(askQ){
+			          localStorage.removeItem(this.key);
+			           window.location.reload();
+			           alert("Info was deleted!");
+			         }else{
+			           alert("Info was NOT deleted!");
+		         }
+		     };
+	
+		
+		// Error Link / Form Validation
+		var myEntForm = $('#entForm');
+				entErrorLink = $('#entErrorLink');
+				
+		 	myEntForm.validate({
+		 		invalidHandler: function(form, validator){
+		 			entErrorLink.click();
+		 			var htmlString = '';
+		 			for(var key in validator.submitted){
+		 				var label  = $('label[for^="'+ key +'"]').not('[generated]');
+		 				var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+		 				var theFieldName = legend.length ? legend.text() : label.text();
+		 				htmlString += '<li>'+ theFieldName +'</li>';
+		 			};
+		 			$("#addItem2Errors ul" ).html(htmlString);
+		 		},
+		 		submitHandler: function(){
+				  var data = myEntForm.serializeArray();
+				  	storeData(data);
+			 	}
+			});
+		
+  
+	
+}); // Form Page End 
+
+		
+
+
+
+// Browse Page
+$("#browse").on('pageinit', function(){
+	
+}); // Browse Page End 
+
+
+
+
+}); // Document Ready End 
+
+
+
+/*Form values / submit button
 	$('#submit').on('click', function(){
 		var saveTo 	     = $('#saveTo').val();
 		var theDate      = $('#date').val();
@@ -82,59 +173,5 @@ $("#addEntItem").on('pageinit', function(){
 		var theCondition = $('#theCondition').val();
 		var textArea     = $('#textArea').val();
 	});
+*/	
 	
-	
-	
-});
-
-
-
-// Browse Page
-$("#browse").on('pageinit', function(){
-	
-});
-
-
-	
-	
-
-
-	
-// Auto Populate Local Storage
-	var autoPopulateData = function (){
-        //Actual JSON OBJECT data req.for this to work is coming from json.js
-          //Store the JO into Local Storage
-        for(var n in jsonData){
-            var id = Math.floor(Math.random()*100000001);
-            localStorage.setItem(id, JSON.stringify(jsonData[n]));
-        }    
-     };
-	
-	
-	
-	
-// Delete Item
- 	var deleteTheItem = function (){
-        var askQ = confirm("Are you sure you want to delete entry?");
-        if(askQ){
-          localStorage.removeItem(this.key);
-           window.location.reload();
-           alert("Info was deleted!");
-         }else{
-           alert("Info was NOT deleted!");
-         }
-     };
-
-// Clear Local Storage
-    var clearLocalStorage = function (){
-        if(localStorage.length===0){
-            alert("There is no data to clear.");
-        }else{
-            localStorage.clear();
-            alert("All user and workout data will be cleared!");
-            window.location.reload();
-            return false;
-        }
-     };
-
-});
