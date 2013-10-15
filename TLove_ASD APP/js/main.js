@@ -61,27 +61,28 @@ $("#addEntItem").on('pageinit', function(){
 		
 			
 		// Load JSON Data
-		//$('loadJSON').on('click', function(){
+	//	$('loadJSON').on('click', function(){
 			$.ajax({
-				url: 'js/data.json',
-				type: 'GET',
-				dataType: 'json',
+				url: "data.json",
+				type: "GET",
+				dataType: "json",
 				success: function(data, status){
+				//	$('data').append(JSON.stringify(data));
 					console.log(status, data);
-				},
-				error: function(error, parseerror){
-					console.log(error, parseerror);
+			//	},
+				//error: function(error, parseerror){
+					//console.log(error, parseerror);
 				}
 			});
-	//	});
+	//	});            
 	
 	
 		// Load XML Data
 		$('loadXML').on('click', function(){
 			$.ajax({
-				url: 'js/data.xml',
-				type: 'GET',
-				dataType: 'xml',
+				url: "data.xml",
+				type: "GET",
+				dataType: "xml",
 				success: function(data){
 					console.log(data);
 				},
@@ -107,16 +108,16 @@ $("#addEntItem").on('pageinit', function(){
 	
 	
 		// Delete Item
-	 	var deleteTheItem = function (){
-	     	var askQ = confirm("Are you sure you want to delete entry?");
-		        if(askQ){
-		          localStorage.removeItem(this.key);
-		           window.location.reload();
-		           alert("Info was deleted!");
-		         }else{
-		           alert("Info was NOT deleted!");
-	         }
-	     };
+		 	var deleteTheItem = function (){
+		     	var askQ = confirm("Are you sure you want to delete entry?");
+			        if(askQ){
+			          localStorage.removeItem(this.key);
+			           window.location.reload();
+			           alert("Info was deleted!");
+			         }else{
+			           alert("Info was NOT deleted!");
+		         }
+		     };
 	
 		
 		// Error Link / Form Validation
