@@ -9,8 +9,24 @@ $("#home").on('pageinit', function(){
 	
 });  // Home Page End
 
+var parseEntData = function(data){
+	
+};
+
 // Form Page
 $("#addEntItem").on('pageinit', function(){
+	
+	Form values / submit button
+	$('#submit').on('click', function(){
+		var saveTo 	     = $('#saveTo').val();
+		var theDate      = $('#date').val();
+		var catalog      = $('#catalog').val();
+		var titleName    = $('#titleName').val();
+		var radios       = $("form input:radio:checked").val();
+		var slider       = $('#coi').slider();
+		var theCondition = $('#theCondition').val();
+		var textArea     = $('#textArea').val();
+	});
 	
 	// Store Local Data
 	var storeData = function(data, key){
@@ -20,11 +36,12 @@ $("#addEntItem").on('pageinit', function(){
         }else{
            
             id = key;
-        }    
+        }   
+         
 		var detail              = {};
 			detail.saveTo      	= ["Save Info To : ", $('#saveTo').val()];
 			detail.date        	= ["Date : ", $('#date').val()];
-			detail.catalog     	= ["In My Collection : ", $('catalog').val()];
+			detail.catalog     	= ["In My Collection : ", $('#catalog').val()];
 			detail.titleName  	= ["Entertainment Title : ", $('#titleName').val()];
 			detail.Favorite    	= ["Is This a Favorite? : ",$("input:radio[name=Favorite]:checked").val()];
 			detail.coi         	= ["Cost of Item : ", $('#coi').val()]; 
@@ -43,12 +60,15 @@ $("#addEntItem").on('pageinit', function(){
 			if (localStorage.length === 0){
 	           alert("There is no data in Local Storage, so default data was added.");
 	           autoPopulateData();
-	        }   
-			
+	        }
+	        for(var i=0, ls=localStorage.length; i<ls; i++){
+	        var key = localStorage.key(i);
+            var keyVal = localStorage.getItem(key);   
+            }
 		};
 		
 		
-		// Auto Populate Local Storage
+	/*	// Auto Populate Local Storage
 		var autoPopulateData = function (){
 	        //Actual JSON OBJECT data req.for this to work is coming from json.js
 	          //Store the JO into Local Storage
@@ -58,40 +78,49 @@ $("#addEntItem").on('pageinit', function(){
 	        }  
 	        alert("There is no data in Local Storage, so default data was added.");  
 	     };
-		
+	*/	
 			
 		// Load JSON Data
-	//	$('loadJSON').on('click', function(){
-			$.ajax({
-				url: "data.json",
-				type: "GET",
-				dataType: "json",
-				success: function(data, status){
-				//	$('data').append(JSON.stringify(data));
-					console.log(status, data);
-			//	},
-				//error: function(error, parseerror){
-					//console.log(error, parseerror);
-				}
-			});
-	//	});            
-	
-	
-		// Load XML Data
-		$('loadXML').on('click', function(){
+		$('#jsonData').on('click', function(){
+			localStorage.clear();
+			 for(var n in jsonData){
+	            var id = Math.floor(Math.random()*100000001);
+	            localStorage.setItem(id, JSON.stringify(jsonData[n]));
+	        }  
+			alert("There is no data in Local Storage, so default data was added.");      
+			$.mobile.changePage('#displayPage');
+			window.location.reload();
+		});
+		
+		
+	/*	// Load XML Data
+		$('#xmlData').on('click', function(){
+			$.ajaxSetup([cache.false]);
+			localStorage.clear();
 			$.ajax({
 				url: "data.xml",
 				type: "GET",
 				dataType: "xml",
-				success: function(data){
-					console.log(data);
-				},
-				error: function(error, parseerror){
-					console.log	(error, parseerror);
-				}
-			});
+				success: function(dataXml){
+					var data = $.parseXML(dataXml);
+					var details = $(this);
+					details.find("detail").each(function(){
+						var detail = $(this);
+						var detailObj = {
+						" saveTo": ["Save Info To : ", $('#saveTo').val()];
+							["Date : ", $('#date').val()];
+							["In My Collection : ", $('#catalog').val()];
+							["Entertainment Title : ", $('#titleName').val()];
+							["Is This a Favorite? : ",$("input:radio[name=Favorite]:checked").val()];
+							["Cost of Item : ", $('#coi').val()]; 
+							["Is This Item Brand New? : ", $('#theCondition').val()]; 
+							["Notes : ", $('#textArea').val()];
+						}
+					};
+		
 		});
-	
+			
+	*/
 		
 		// Clear Local Storage
     	var clearLocalStorage = function (){
@@ -162,16 +191,6 @@ $("#browse").on('pageinit', function(){
 
 
 
-/*Form values / submit button
-	$('#submit').on('click', function(){
-		var saveTo 	     = $('#saveTo').val();
-		var theDate      = $('#date').val();
-		var catalog      = $('#catalog').val();
-		var titleName    = $('#titleName').val();
-		var radios       = $("form input:radio:checked").val();
-		var slider       = $('#coi').slider();
-		var theCondition = $('#theCondition').val();
-		var textArea     = $('#textArea').val();
-	});
-*/	
+
+
 	
