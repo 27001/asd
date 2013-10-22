@@ -1,7 +1,7 @@
 // Tai Love
 // ASD 1310
 
-$(document).ready(function(){
+// $(document).ready(function(){
 	
 	
 // Home Page	
@@ -9,28 +9,49 @@ $("#home").on('pageinit', function(){
 	
 });  // Home Page End
 
-var parseEntData = function(data){
-	
-};
+
 
 // Form Page
 $("#addEntItem").on('pageinit', function(){
 	
-	Form values / submit button
-	$('#submit').on('click', function(){
-		var saveTo 	     = $('#saveTo').val();
-		var theDate      = $('#date').val();
-		var catalog      = $('#catalog').val();
-		var titleName    = $('#titleName').val();
-		var radios       = $("form input:radio:checked").val();
-		var slider       = $('#coi').slider();
-		var theCondition = $('#theCondition').val();
-		var textArea     = $('#textArea').val();
-	});
 	
-	// Store Local Data
-	var storeData = function(data, key){
+	
+	
+		// Get Local Data
+		var getTheData = $('#display');
+		getTheData.on('click', getData);
 		
+		
+	/*	var getTheData = function(){ 
+			if (localStorage.length === 0){
+	           alert("There is no data in Local Storage, so default data was added.");
+	           autoPopulateData();
+	        }
+	        for(var i=0, ls=localStorage.length; i<ls; i++){
+	        var key = localStorage.key(i);
+            var keyVal = localStorage.getItem(key);   
+            }
+		};
+	*/	
+		
+	/*	// Auto Populate Local Storage
+		var autoPopulateData = function (){
+	        //Actual JSON OBJECT data req.for this to work is coming from json.js
+	          //Store the JO into Local Storage
+	        for(var n in jsonData){
+	            var id = Math.floor(Math.random()*100000001);
+	            localStorage.setItem(id, JSON.stringify(jsonData[n]));
+	        }  
+	        alert("There is no data in Local Storage, so default data was added.");  
+	     };
+	*/	
+	
+
+		// Store Local Data
+	
+	 	// Save Data
+		var storeData = function(data, key){
+			
 		if(!key){
             var id    =    Math.floor(Math.random()*100000001);
         }else{
@@ -48,37 +69,15 @@ $("#addEntItem").on('pageinit', function(){
 			detail.theCondition = ["Is This Item Brand New? : ", $('#theCondition').val()]; 
 			detail.textArea     = ["Notes : ", $('#textArea').val()];
 		
-		 //Save date to loal storage with Stringify to convert object to strings
-           localStorage.setItem(id, JSON.stringify(detail));
-           alert("Info Saved!");
+		 //Save data to loal storage with Stringify to convert object to strings		 	
+          localStorage.setItem(id, JSON.stringify(detail));
+          alert("Info Saved!");
 	};
 	
+		var save = $('#save');
+		save.on('click', validate);
 	
 	
-		// Get Local Data
-		var getTheData = function(){ 
-			if (localStorage.length === 0){
-	           alert("There is no data in Local Storage, so default data was added.");
-	           autoPopulateData();
-	        }
-	        for(var i=0, ls=localStorage.length; i<ls; i++){
-	        var key = localStorage.key(i);
-            var keyVal = localStorage.getItem(key);   
-            }
-		};
-		
-		
-	/*	// Auto Populate Local Storage
-		var autoPopulateData = function (){
-	        //Actual JSON OBJECT data req.for this to work is coming from json.js
-	          //Store the JO into Local Storage
-	        for(var n in jsonData){
-	            var id = Math.floor(Math.random()*100000001);
-	            localStorage.setItem(id, JSON.stringify(jsonData[n]));
-	        }  
-	        alert("There is no data in Local Storage, so default data was added.");  
-	     };
-	*/	
 			
 		// Load JSON Data
 		$('#jsonData').on('click', function(){
@@ -123,7 +122,12 @@ $("#addEntItem").on('pageinit', function(){
 	*/
 		
 		// Clear Local Storage
-    	var clearLocalStorage = function (){
+		
+		var clear = $('#clear');
+		clear.on('click', clearLocal);
+		
+		
+    	/* var clearLocalStorage = function (){
 	        if(localStorage.length===0){
 	            alert("There is no data to clear.");
 	        }else{
@@ -133,7 +137,7 @@ $("#addEntItem").on('pageinit', function(){
 			    return false;
 			}
      	};
-	
+		*/
 	
 	
 		// Delete Item
@@ -148,6 +152,11 @@ $("#addEntItem").on('pageinit', function(){
 		         }
 		     };
 	
+	
+	
+		// Edit Item
+		
+		
 		
 		// Error Link / Form Validation
 		var myEntForm = $('#entForm');
@@ -187,10 +196,21 @@ $("#browse").on('pageinit', function(){
 
 
 
-}); // Document Ready End 
+//  }); // Document Ready End 
 
 
 
-
+/*	Form values / submit button
+	$('#submit').on('click', function(){
+		var saveTo 	     = $('#saveTo').val();
+		var theDate      = $('#date').val();
+		var catalog      = $('#catalog').val();
+		var titleName    = $('#titleName').val();
+		var radios       = $("form input:radio:checked").val();
+		var slider       = $('#coi').slider();
+		var theCondition = $('#theCondition').val();
+		var textArea     = $('#textArea').val();
+	});
+*/
 
 	
