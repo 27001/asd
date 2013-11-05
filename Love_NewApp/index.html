@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
         
-    <title>Page Title</title>
+    <title>G!FT GiV3R App</title>
     
     <!--  Mobile viewport optimized: j.mp/bplateviewport -->
     <meta name="HandheldFriendly" content="True">
@@ -29,81 +29,183 @@
     <div id="main">
         <!--Home Page-->
         <section data-role="page" id="home">
-            <header data-role="header" data-position="fixed"><h1>G!FT GiV3R</h1></header>
-            
-            <nav>
-                <ul>
-                    <li></li>
-                </ul>
-            </nav>
+            <header data-role="header" data-position="fixed"><h1>G!FT GiV3R</h1><h2>Home</h2></header>
             
             <section data-role="content">
-                <p>Enter something here</p>
+                <p align="center"><strong>Organize Your Gift Ideas And The Gifts You Give In One Convenient Place</strong></p>
             </section>
+            <br />
             
-            <!-- Navigation Bar -->
-	    <footer data-role="footer" data-position="fixed"></footer>
-		<div data-role="navbar">
-                    <ul>
-                        <li><a href="#home" data-icon="home" class="ui--btn-active" data-iconpos="top">Home</a></li>
-			<li><a href="#addItem" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Item</a></li>
-			<li><a href="#browse" data-icon="grid" class="ui--btn-active" data-iconpos="top">Browse</a></li>
-		    </ul>    
-		</div> <!--navbar-->
+            <nav>
+                <a href="#addGift" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Gift</a>
+                <a href="#addIdea" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Interests & Ideas</a>
+		<a href="#browse"data-role="button" data-icon="arrow-r" data-iconpos="right">Browse</a>
+	    </nav>
+            
+            <footer data-role="footer" data-position="fixed"><h1>G!FT GiV3R</h1></footer>
 	</section> <!--home page end-->
         
         
-        <!--Content Page-->
-         <section data-role="page" id="addItem">
-            <header data-role="header" data-position="fixed"><h1>G!FT GiV3R</h1></header>
-            
-            <nav>
-                <ul>
-                    <li></li>
-                </ul>
-            </nav>
+        <!--Gift Content Page-->
+         <section data-role="page" id="addGift" data-add-back-btn="true">
+            <header data-role="header" data-position="fixed"><h1>G!FT GiV3R</h1><h2>Add Gift</h2></header>
             
             <section data-role="content">
-                <p>Enter something else here</p>
+                
+                <form action="" method="post" id="giftForm">
+                    
+                    <!--For Who-->
+                    <section data-role="fieldcontain">
+                        <label for="forWho">For Who?</label>
+                        <input type="text" name="forWho" id="forWho" placeholder="Recepient Name" />
+                    </section> <!--end of for who-->
+                    
+                    <!--Occasion Dropdown-->
+                    <section data-role="fieldcontain">
+                        <label for="occasion">Occasion</label>
+                        <select name="occasion" id="occasion" data-native-menu="true" class="required">
+                            <option data-placeholder="true">Name the Occasion</option>
+                            <option value="Birthday">Birthday</option>
+                            <option value="Anniversary">Anniversary</option>
+                            <option value="Christmas">Christmas</option>
+                            <option value="Valentine's Day">Valentine's Day</option>
+                            <option value="Mother's Day">Mother's Day</option>
+                            <option value="Father's Day">Father's Day</option>
+                            <option value="Wedding">Wedding</option>
+                            <option value="Baby Shower">Baby Shower</option>
+                            <option value="House Warming">House Warming</option>
+                            <option value="Easter">Easter</option>
+                            <option value="Just Because">Just Because</option>
+    			</select>
+                    </section><!--Occasion Dropdown End-->
+                    
+                    <!--Date Purchased-->
+                    <section data-role="fieldcontain">
+                        <label for="date">Date Purchased</label>
+                        <input type="date" name="date" id="date" placeholder="DD-MM-YYYY" /> 
+                    </section><!--Date Purchased End-->
+                    
+                    
+                    <!--Cost-->
+                    <section data-role="fieldcontain">
+                        <label for="coi">Cost of Item</label>
+    			<input type="range" name="coi" id="coi" value="5" min="0" max="2000" data-highlight="true" />
+                    </section><!--Cost End-->
+                    
+                    <!--Notes-->
+                    <section data-role="fieldcontain">
+                        <label for="textArea">Notes:</label>
+                        <textarea name="textArea" id="textArea" placeholder="Additional Notes Here"></textarea>
+                    </section><!--Date Purchased End-->
+                
+                </form> <!--End of Gift Form Page-->
             </section>
             
            <!-- Navigation Bar -->
-	    <footer data-role="footer" data-position="fixed"></footer>
-		<div data-role="navbar">
+	    <footer data-role="footer" data-position="fixed"><h1>G!FT GiV3R</h1></footer>
+		<nav data-role="navbar" data-position="fixed">
                     <ul>
                         <li><a href="#home" data-icon="home" class="ui--btn-active" data-iconpos="top">Home</a></li>
-			<li><a href="#addItem" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Item</a></li>
+			<li><a href="#addGift" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Gift</a></li>
+                        <li><a href="#addIdea" data-icon="star" class="ui--btn-active" data-iconpos="top" data-ajax="false">Interests</a></li>
 			<li><a href="#browse" data-icon="grid" class="ui--btn-active" data-iconpos="top">Browse</a></li>
 		    </ul>    
-		</div> <!--navbar-->
-	</section> <!--content page end-->
+		</nav> <!--navbar-->
+	</section> <!--Gift content page end-->
+        
+        
+        
+        <!--Interests and Ideas Page-->
+         <section data-role="page" id="addIdea" data-add-back-btn="true">
+            <header data-role="header" data-position="fixed"><h1>G!FT GiV3R</h1><h2>Interests & Ideas</h2></header>
+            
+            <section data-role="content">
+                <form action="" method="post" id="ideaForm">
+                    
+                    <!--For Who-->
+                    <section data-role="fieldcontain">
+                        <label for="forWho2">For Who?</label>
+                        <input type="text" name="forWho2" id="forWho2" placeholder="Recepient Name" />
+                    </section> <!--end of for who-->
+                    
+                    <!--Birthday-->
+                    <section data-role="fieldcontain">
+                        <label for="birthday">Birthday</label>
+                        <input type="date" name="birthday" id="birthday" placeholder="Enter Birthday" />
+                    </section><!--Birthday End-->
+                    
+                    <!--Spiritual Birthday-->
+                    <section data-role="fieldcontain">
+                        <label for="baptism">Spiritual Birthday</label>
+                        <input type="date" name="baptism" id="baptism" placeholder="Date of Baptism" />
+                    </section><!--Spiritual Birthday End-->
+                    
+                    <!--Anniversary-->
+                    <section data-role="fieldcontain">
+                        <label for="anniversary">Anniversary</label>
+                        <input type="date" name="anniversary" id="anniversary" placeholder="Enter Anniversary" />
+                    </section><!--Anniversary End-->
+                    
+                    <!--Favorites-->
+                    <section data-role="fieldcontain">
+                        <label for="favs">Favorite Things</label>
+                        <textarea name="favs" id="favs" placeholder="Enter All Favorite Things"></textarea>
+                    </section><!--Favorite Things End-->
+                    
+                    <!--Interest and Hobbies-->
+                    <section data-role="fieldcontain">
+                        <label for="hobby">Interests & Hobbies</label>
+                        <textarea name="favs" id="favs" placeholder="Enter All Interest & Hobbies"></textarea>
+                    </section><!--Favorite Things End-->
+                    
+                    <!--Notes-->
+                    <section data-role="fieldcontain">
+                        <label for="textArea2">Notes:</label>
+                        <textarea name="textArea2" id="textArea2" placeholder="Additional Notes Here"></textarea>
+                    </section><!--Notes End-->
+                    
+                    
+                </form> <!--End of Idea Form Page-->
+            </section>
+            
+           <!-- Navigation Bar -->
+	    <footer data-role="footer" data-position="fixed"><h1>G!FT GiV3R</h1></footer>
+		<nav data-role="navbar"data-position="fixed">
+                    <ul>
+                        <li><a href="#home" data-icon="home" class="ui--btn-active" data-iconpos="top">Home</a></li>
+			<li><a href="#addGift" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Gift</a></li>
+                        <li><a href="#addIdea" data-icon="star" class="ui--btn-active" data-iconpos="top" data-ajax="false">Interests</a></li>
+			<li><a href="#browse" data-icon="grid" class="ui--btn-active" data-iconpos="top">Browse</a></li>
+		    </ul>    
+		</nav> <!--navbar-->
+	</section> <!--Interests and Ideas page end-->
         
         
         <!--Browse Page-->
-         <section data-role="page" id="browse">
-            <header data-role="header" data-position="fixed"><h1>G!FT GiV3R</h1></header>
-            
-            <nav>
-                <ul>
-                    <li></li>
-                </ul>
-            </nav>
+         <section data-role="page" id="browse" data-add-back-btn="true">
+            <header data-role="header" data-position="fixed"><h1>G!FT GiV3R</h1><h2>Browse</h2></header>
             
             <section data-role="content">
-                <p>And maybe something here</p>
+                <input type="search" name="search" id="appSearch1" placeholder=" Search" data-mini="true" />
+                <br />
+                <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right">Load JSON Data</a>
+		<a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right">Load XML Data</a>
+                <p></p>
             </section>
             
            <!-- Navigation Bar -->
-	    <footer data-role="footer" data-position="fixed"></footer>
-		<div data-role="navbar">
+	    <footer data-role="footer" data-position="fixed"><h1>G!FT GiV3R</h1></footer>
+		<nav data-role="navbar" data-position="fixed">
                     <ul>
                         <li><a href="#home" data-icon="home" class="ui--btn-active" data-iconpos="top">Home</a></li>
-			<li><a href="#addItem" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Item</a></li>
+			<li><a href="#addGift" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Gift</a></li>
+                        <li><a href="#addIdea" data-icon="star" class="ui--btn-active" data-iconpos="top" data-ajax="false">Interests</a></li>
 			<li><a href="#browse" data-icon="grid" class="ui--btn-active" data-iconpos="top">Browse</a></li>
-		    </ul>    
+		    </nav>    
 		</div> <!--navbar-->
 	</section> <!--browse page end-->
     </div>
+    
 
     <!-- JavaScript under here -->
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
