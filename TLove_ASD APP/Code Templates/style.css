@@ -3,3 +3,14 @@
  ASD 1310
  CSS Styles
 */
+
+label.error{display:block; margin:10px 0; color: #cc0000;}
+
+#entErrorLink{display:none;}
+
+img{
+    
+    margin: 0px 5px 0px -7.5px;
+    width: auto;
+    
+}

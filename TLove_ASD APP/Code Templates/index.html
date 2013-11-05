@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <!--Tai Love, ASD 1310-->
 
-<!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	
@@ -16,62 +17,189 @@
 	<meta http-equiv="cleartype" content="on">
 	
 	<!-- StyleSheets under here -->
-		<link rel="stylesheet" href="css/themes/entCol.min.css" />
+		<link rel="stylesheet" href="themes/entCol.min.css" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
-        <link rel="stylesheet" href="css/mystyle.css" type="text/css" />
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
 	
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-	<script src="js/libs/modernizr.custom.min.js"></script>
+	<script src="libs/modernizr.custom.min.js"></script>
+	
 </head>
 <body>
 	<div id="main">
+		<!-- Home Page -->
 		<section data-role="page" id="home">
-			<header data-role="header"><h1>Home</h1></header>
-			
-			<nav>
-				<ul>
-					<li></li>
-				</ul>
-			</nav>
+			<header data-role="header" data-position="fixed"><h1>Home</h1></header>
 			
 			<section data-role="content">
-				<p> </p>
+				<!-- CTA Image -->
+		    	<img src="img/CTA.jpg" align="center" alt="CTA Image" />
+		    	<br />
+				<a href="#addEntItem" data-role="button" data-icon="arrow-r" data-iconpos="right" value="Get Started">Get Started</a>  
 			</section>
-			<footer data-role="footer"></footer>
-		</section>
+			
+			<!-- Navigation Bar -->
+			<footer data-role="footer" data-position="fixed" data-id="entColl"></footer>
+				<div data-role="navbar">
+					<ul>
+					    <li><a href="#home" data-icon="home" class="ui--btn-active" data-iconpos="top">Home</a></li>
+					    <li><a href="#addEntItem" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Item</a></li>
+					    <li><a href="#browse" data-icon="grid" class="ui--btn-active" data-iconpos="top">Browse</a></li>
+					</ul>    
+			    </div> <!-- navbar -->
+		</section> <!-- home page end -->
+
 		
-		<section data-role="page" id="content">
-			<header data-role="header"><h1>Home</h1></header>
-			
-			<nav>
-				<ul>
-					<li></li>
-				</ul>
-			</nav>
-			
-			<section data-role="content">
-				<p> </p>
-			</section>
-			<footer data-role="footer"></footer>
-		</section>
 		
-		<section data-role="page" id="form">
-			<header data-role="header"><h1>Home</h1></header>
+		<!-- Form Page -->
+		<section data-role="page" id="addEntItem" data-add-back-btn="true">
+			<header data-role="header" data-position="fixed"><h1>Entertainment Collection</h1></header>
 			
-			<nav>
-				<ul>
-					<li></li>
-				</ul>
-			</nav>
 			
 			<section data-role="content">
-				<p> </p>
-			</section>
-			<footer data-role="footer"></footer>
-		</section>
-	</div>
-	<script src="js/json.js" type="text/javascript"></script>	
+				
+				<form action="" method="post" id="entForm">
+					
+    			 	<div data-role="fieldcontain"> <!-- Select dropdown (Save To)-->
+		    		    <label class="required" for="saveTo">Save Info To</label>
+		    		    <select name="saveTo" id="saveTo" class="required">
+			    			<option data-placeholder="true">Please Select One</option>
+			    			<option value="Gmail">Gmail</option>
+			    			<option value="Hotmail">Hotmail</option>
+			    			<option value="Phone">Phone</option>
+			    			<option value="iCloud">iCloud</option>
+		    		    </select>
+					</div> <!--saveTo end-->
+		    			
+		    		<div data-role="fieldcontain"> <!-- Date Picker -->
+		    		    <label for="date" >Date Added</label>
+							<input type="date" name="date" id="date" value="" placeholder="YYYY-MM-DD" class="required" />
+		    		</div> <!--date picker end -->
+		    			
+		    			
+		    		<div data-role="fieldcontain"> <!-- Select dropdown (Ent Type)-->
+		    		    <label for="catalog">In My Collection</label>
+		    		    <select name="catalog" id="catalog" data-native-menu="true" class="required">
+			    			<option data-placeholder="true">Entertainment Type</option>
+			    			<option value="DVD">DVD</option>
+			    			<option value="CD">CD</option>
+			    			<option value="Video Game">Video Game</option>
+			    			<option value="Book">Book</option>
+			    			<option value="VHS">VHS</option>
+			    			<option value="Other">Other</option>
+		    			</select>
+		    		</div> <!-- Dropdown Ent Type end-->
+					
+		    			
+		    			
+		    		<div data-role="fieldcontain"> <!-- Entertainment Title -->
+		    		    <label for="titleName">Title</label>
+		    				<input type="text" name="titleName" id="titleName" placeholder="Entertainment Title" class="required"/>
+		    		</div> <!--Ent Title End-->
+		    			
+		    			
+		    		<div data-role="fieldcontain"> <!-- Radio Buttons -->
+		    		    <fieldset data-role="controlgroup">
+							<legend>Is This a Favorite?</legend>
+				    			<input type="radio" value="Yes" name="Favorite" id="yes" class="required"/>
+				    			    <label for="yes">Yes</label>
+				    				<input type="radio" value="No" name="Favorite" id="no" />
+				    				<label for="no">No</label>
+				    				<input type="radio" value="I don't know, yet" name="Favorite" id="idky" />
+				    				<label for="idky">I don't know, yet</label>
+		    		    </fieldset>
+		    		</div> <!--Radio Buttons end-->
+				
+		    			
+		    				
+		    		<div data-role="fieldcontain"> <!-- Range Slider -->
+		    		    <label for="coi">Cost of Item</label>
+		    				<input type="range" name="coi" id="coi" value="20" min="0" max="300" data-highlight="true" data-track-theme="b"/>
+		    		</div> <!--Range Slider End-->
+		    			
+		    		<div data-role="fieldcontain"> <!--Toggle Slider-->
+		    		    <label for="theCondition">Item Condition</label><br />
+			    			<select data-role="slider" id="theCondition">
+			    			    <option value="new">New</option>
+			    			    <option value="used">Used</option>
+			    			</select>	
+		    		</div> <!--Toggle Slider End-->
+		    		
+		    			
+		    		<div data-role="fieldcontain"> <!-- Text Area (Notes) -->
+		    		    <label for="textarea">Notes</label><br />
+		    				<textarea name="textarea" id="textarea" placeholder="Additional Notes Here"></textarea> 
+		    		</div> <!--notes end -->
+		    			
+		    		<div data-role="fieldcontain"> 
+		    		    <input type="submit" value="Add New Title" />
+		    		    <br /> <br />
+		    		    <input type="reset" value="Reset" data-mini="true" />
+		    		</div>	
+		    		    <a href="#addEntItemErrors" id="entErrorLink" data-rel="dialog" data-transition="pop">Errors</a>
+    	    	</form>
+			</section> <!--End Content-->
+			
+			<!-- Navigation Bar -->
+			<footer data-role="footer" data-position="fixed" data-id="entColl"></footer>
+				<div data-role="navbar">
+					<ul>
+					    <li><a href="#home" data-icon="home" class="ui--btn-active" data-iconpos="top">Home</a></li>
+					    <li><a href="#addEntItem" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add/Edit Item</a></li>
+					    <li><a href="#browse" data-icon="grid" class="ui--btn-active" data-iconpos="top">Browse</a></li>
+					</ul>    
+			    </div> <!-- navbar -->
+		</section> <!-- End Form Page -->
+			
+		
+		<!-- Browse Page -->
+		<section data-role="page" id="browse" data-add-back-btn="true">
+			<header data-role="header" data-position="fixed"><h1>Browse Collection</h1></header>
+			
+			<section data-role="content">
+				 <input type="search" name="search" id="appSearch1" placeholder=" Search" data-mini="true" />
+				 <br />
+				 <a href="data.json" data-role="button" data-icon="arrow-r" data-iconpos="right" data-mini="true">Load JSON Data</a>
+		   		 <a href="data.xml" data-role="button" data-icon="arrow-r" data-iconpos="right" data-mini="true">Load XML Data</a>
+				<p> </p>	
+			</section> <!--content end-->
+			
+			<!-- Navigation Bar -->
+			<footer data-role="footer" data-position="fixed" data-id="entColl"></footer>
+				<div data-role="navbar">
+					<ul>
+					    <li><a href="#home" data-icon="home" class="ui--btn-active" data-iconpos="top">Home</a></li>
+					    <li><a href="#addEntItem" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Item</a></li>
+					    <li><a href="#browse" data-icon="grid" class="ui--btn-active" data-iconpos="top">Browse</a></li>
+					</ul>    
+			    </div> <!-- navbar -->
+		</section> <!-- browse page end-->
+	</div> <!--End Main-->
+		
+		
+		 <!-- Form Validation Errors-->
+    
+	    <div data-role="dialog" id="addEntItemErrors"> 
+	    
+	    	<div data-role="header" data-position="fixed">
+	    	    <h1>Missing Required Fields</h1>
+	    	</div>  
+	    	
+	    	<div data-role="content">
+		    <h3></h3>
+	    	</div>
+	    </div> <!--addEntError page End-->	
+		
+	
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	<script src="libs/jquery-2.0.3.min.js"></script>
+	<script src="libs/jquery.mobile-1.3.2.js"></script>
+	<script src="libs/jquery.validate.min.js" type="text/javascript"></script>
+	<script src="data.json" type="application/json"></script>
+	<!--script src="data.xml" type="text/javascript"></script -->	
     <script src="js/main.js" type="text/javascript"></script>   
 </body>
 </html>
