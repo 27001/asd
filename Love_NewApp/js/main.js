@@ -53,8 +53,8 @@ $("#addGift").on('pageinit', function(){
         detail.forWho      = ["Recipient : ", $('#forWho').val()];
         detail.occasion    = ["Occasion : ", $('#occasion').val()];
         detail.gift        = ["Gift : ", $('#gift').val()];
-        detail.selectDay   = ["Date : ", $('#selectDay').val()];
-        detail.store       = ["Store : ", $('#store').val()]
+        detail.purchased   = ["Date Purchased: ", $('#purchased').val()];
+        detail.store       = ["Store Purchased : ", $('#store').val()]
         detail.coi         = ["Cost of Item : ", $('#coi').val()]; 
         detail.textArea    = ["Notes : ", $('#textArea').val()]; 
                
@@ -77,11 +77,44 @@ $("#addGift").on('pageinit', function(){
 	var autoPopulateData = function (){
         //Actual JSON OBJECT data req.for this to work is coming from data.Json
           //Store the JO into Local Storage
-        for(var n in jsonData){
+        for(var n in jsonItems){
             var id = Math.floor(Math.random()*100000001);
             localStorage.setItem(id, JSON.stringify(jsonData[n]));
         }    
      };
+     
+     
+     // Load JSON Data
+    $('#jsonStorage').on('click', function(){
+        $.ajax({
+            url      : "data.json",
+            type     : "GET",
+            dataType : "json",
+            success  : function(data, status) {
+                console.log(status, data);
+            },
+            error: function(error, parseerror) {
+                console.log(error, parseerror)
+            }
+        })    
+    });  // End Load JSON Data
+        
+    
+    // Load XML Data
+    $('#xmlStorage').on('click', function(){
+        $.ajax({
+            url      : "data.xml",
+            type     : "GET",
+            dataType : "xml",
+            success  : function(data, status) {
+                console.log(status, data);
+            },
+            error: function(error, parseerror) {
+                console.log(error, parseerror)
+            }
+        });
+    }); // End Load XML Data
+     
     
 }); // Gift Form Page End
 
@@ -104,7 +137,7 @@ $("#addInfo").on('pageinit', function(){
   
   
 // Browse Page
-$("#browse").on('pageinit', function(){
+$("#browse").on('pageinit', function(){ 
     
 }); // Browse Page End
 
