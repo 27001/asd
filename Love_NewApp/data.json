@@ -1,8 +1,4 @@
-$(document).ready(function (e) {
-
-    localStorage.clear();
-
-    var jsonItems = {
+{
 
         "items":[
 
@@ -109,10 +105,3 @@ $(document).ready(function (e) {
 
     };
 
-    $.each(jsonItems.items, function (index, singleItem) {
-        var _id = Math.floor(Math.random() * 100001);
-        var toStore = JSON.stringify(singleItem);
-        localStorage.setItem(_id, toStore);
-        console.log("Saved item " + index + " to storage with _id = " + _id);
-    });
-});
