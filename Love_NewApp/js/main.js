@@ -11,7 +11,7 @@ $("#home").on('pageinit', function(){
 // Gift Form Page
 $("#addGift").on('pageinit', function(){
     
-    // Validation
+/*  // Validation
         var theGift = $('#giftForm');
             theGift.validate({
                 invalidHandler: function(form, validator){
@@ -22,7 +22,7 @@ $("#addGift").on('pageinit', function(){
                 }
             });
         
-    
+*/    
         
  /*   function validateData(key){
         var theGift = $('#giftForm');
