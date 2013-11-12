@@ -11,6 +11,31 @@ $("#home").on('pageinit', function(){
 // Gift Form Page
 $("#addGift").on('pageinit', function(){
     
+    // Validation
+        var theGift = $('#giftForm');
+            theGift.validate({
+                invalidHandler: function(form, validator){
+                },
+                submitHandler: function(){
+        var data = theGift.serializeArray();
+                    storeData(data);
+                }
+            });
+        
+    
+        
+ /*   function validateData(key){
+        var theGift = $('#giftForm');
+        theGift.validate({
+            invalidHandler: function(form, validator){},
+            submitHandler: function(){
+                var data = theGift.serializeArray();
+                storeData(data);
+            }
+        });
+    }; */
+    
+    
     $('submit').on('click', function(){
         validateData();
     });
@@ -24,18 +49,7 @@ $("#addGift").on('pageinit', function(){
     });
         
         
-    // Validation
-        
-    function validateData(key){
-        var theGift = $('#giftForm');
-        theGift.validate({
-            invalidHandler: function(form, validator){},
-            submitHandler: function(){
-                var data = theGift.serializeArray();
-                writeData(data,key);
-            }
-        });
-    };
+    
         
         
       
@@ -65,27 +79,39 @@ $("#addGift").on('pageinit', function(){
         }; // End save to local storage        
         
         
-    //Get Local Data
+ /*   //Get Local Data
     var getTheData = function (){
         if (localStorage.length === 0){
             alert("There is no data in Local Storage, so default data was added.");
             autoPopulateData();
-        }  
+        }
+        for(var i=0, ls=localStorage.length; i<ls; i++){
+            var key = localStorage.key(i);
+            var keyVal = localStorage.getItem(key);
+            var jsnObj = JSON.parse(keyVal);
+            for(var n in jsnObj){
+                var newObj = jsnObj[n][0]+" "+jsnObj[n][1];
+                $ ('#giftList').append(newObj + "<br />");
+            }
+        $('#giftList').append('key + " " + "<br />');
+        
+        
+        }
     };
-    
+   
     // Auto Populate Local Storage
 	var autoPopulateData = function (){
         //Actual JSON OBJECT data req.for this to work is coming from data.Json
           //Store the JO into Local Storage
-        for(var n in jsonItems){
+        for(var n in items){
             var id = Math.floor(Math.random()*100000001);
-            localStorage.setItem(id, JSON.stringify(jsonData[n]));
+            localStorage.setItem(id, JSON.stringify(items[n]));
         }    
      };
-     
-     
-     // Load JSON Data
-    $('#jsonStorage').on('click', function(){
+ */     
+   
+    $('jsonStorage').on('click', function(){
+        var items = [];
         $.ajax({
             url      : "data.json",
             type     : "GET",
@@ -97,8 +123,22 @@ $("#addGift").on('pageinit', function(){
                 console.log(error, parseerror)
             }
         })    
+    });  // End Load JSON Data 
+    // Load JSON Data
+    /*$('#jsonStorage').on('click', function(){
+        $.ajax({
+            url      : "xhr/data.json",
+            type     : "GET",
+            dataType : "json",
+            success  : function(data, status) {
+                console.log(status, data);
+            },
+            error: function(error, parseerror) {
+                console.log(error, parseerror)
+            }
+        })    
     });  // End Load JSON Data
-        
+   */     
     
     // Load XML Data
     $('#xmlStorage').on('click', function(){
@@ -138,7 +178,7 @@ $("#addInfo").on('pageinit', function(){
   
 // Browse Page
 $("#browse").on('pageinit', function(){ 
-    
+   
 }); // Browse Page End
 
 
