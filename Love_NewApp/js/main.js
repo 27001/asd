@@ -6,54 +6,29 @@ $("#home").on('pageinit', function(){
     
 }); // Home Page End
 
-
+var parse = function(data){};
 
 // Gift Form Page
 $("#addGift").on('pageinit', function(){
     
-/*  // Validation
-        var theGift = $('#giftForm');
+    
+    // Validation
+        var theGift = $('giftForm');
+    
             theGift.validate({
                 invalidHandler: function(form, validator){
                 },
                 submitHandler: function(){
-        var data = theGift.serializeArray();
+                    var data = theGift.serializeArray();
                     storeData(data);
                 }
             });
         
-*/    
-        
- /*   function validateData(key){
-        var theGift = $('#giftForm');
-        theGift.validate({
-            invalidHandler: function(form, validator){},
-            submitHandler: function(){
-                var data = theGift.serializeArray();
-                storeData(data);
-            }
-        });
-    }; */
     
     
-    $('submit').on('click', function(){
-        validateData();
-    });
-    
-    $('reset').on('click', function(){
-        location.reload();
-    });
-      
-    $('clearData').on('click', function(){
-        localStorage.clear();
-    });
-        
-        
-    
-        
-        
-      
-    // Save to local storage   
+   
+    // Save to local storage
+   
     var storeData = function(data, key){
         var id;
           
@@ -68,18 +43,19 @@ $("#addGift").on('pageinit', function(){
         detail.occasion    = ["Occasion : ", $('#occasion').val()];
         detail.gift        = ["Gift : ", $('#gift').val()];
         detail.purchased   = ["Date Purchased: ", $('#purchased').val()];
-        detail.store       = ["Store Purchased : ", $('#store').val()]
-        detail.coi         = ["Cost of Item : ", $('#coi').val()]; 
+        detail.store       = ["Store Purchased : ", $('#store').val()];
+        detail.cost        = ["Cost of Item : ", $('#cost').val()]; 
         detail.textArea    = ["Notes : ", $('#textArea').val()]; 
                
         //Save date to loal storage with Stringify to convert object to strings
         localStorage.setItem(id, JSON.stringify(detail));
         alert("Info Saved!");
         resetForm();
+        $.mobile.changePage('#giftList', null, true, true);
         }; // End save to local storage        
         
         
- /*   //Get Local Data
+    //Get Local Data
     var getTheData = function (){
         if (localStorage.length === 0){
             alert("There is no data in Local Storage, so default data was added.");
@@ -93,12 +69,12 @@ $("#addGift").on('pageinit', function(){
                 var newObj = jsnObj[n][0]+" "+jsnObj[n][1];
                 $ ('#giftList').append(newObj + "<br />");
             }
-        $('#giftList').append('key + " " + "<br />');
-        
-        
+        $('#giftList').append(key + " " + '<br />');
+        $('#giftList').append('<a href="#" data-key + key[n] + class="edit">Edit></a> | <a href="#" data-key + key[n] + class="delete">Delete></a>');
+        $('.edit').attr('data-key', key[n]);
         }
     };
-   
+    
     // Auto Populate Local Storage
 	var autoPopulateData = function (){
         //Actual JSON OBJECT data req.for this to work is coming from data.Json
@@ -108,9 +84,9 @@ $("#addGift").on('pageinit', function(){
             localStorage.setItem(id, JSON.stringify(items[n]));
         }    
      };
- */     
+     
    
-    $('jsonStorage').on('click', function(){
+    $('#jsonStorage').on('click', function(){
         var items = [];
         $.ajax({
             url      : "data.json",
@@ -124,21 +100,7 @@ $("#addGift").on('pageinit', function(){
             }
         })    
     });  // End Load JSON Data 
-    // Load JSON Data
-    /*$('#jsonStorage').on('click', function(){
-        $.ajax({
-            url      : "xhr/data.json",
-            type     : "GET",
-            dataType : "json",
-            success  : function(data, status) {
-                console.log(status, data);
-            },
-            error: function(error, parseerror) {
-                console.log(error, parseerror)
-            }
-        })    
-    });  // End Load JSON Data
-   */     
+    
     
     // Load XML Data
     $('#xmlStorage').on('click', function(){
@@ -154,7 +116,36 @@ $("#addGift").on('pageinit', function(){
             }
         });
     }); // End Load XML Data
-     
+    
+    
+     // Edit Links
+    $('.edit').on('click', editInput);
+    
+    
+    // Delete Item
+    $('delete').on('click', function(){
+        var askQ = confirm("Are you sure you want to delete entry?");
+        if(askQ){
+          localStorage.remove($('.delete').data('key'));
+            location.reload();
+           alert("Info was deleted!");
+         }else{
+           alert("Info was NOT deleted!");
+         }
+    });
+    
+
+    
+    // Clear Local Storage
+    $('clear').on('click', function clearData(){
+        if(localStorage.length===0){
+            alert("There is no data to clear.");
+        }else{
+            localStorage.clear();
+            alert("All data will be cleared!");
+            location.reload();
+        }
+    });
     
 }); // Gift Form Page End
 
@@ -163,7 +154,7 @@ $("#addGift").on('pageinit', function(){
 // Interests and Ideas Page
 $("#addInfo").on('pageinit', function(){
     
-    $('submit').on('click', function(){
+    $('#submit').on('click', function(){
         validateData();
     });
     
@@ -175,10 +166,9 @@ $("#addInfo").on('pageinit', function(){
   
   
   
-  
 // Browse Page
 $("#browse").on('pageinit', function(){ 
-   
+
 }); // Browse Page End
 
 
