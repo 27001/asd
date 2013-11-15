@@ -11,7 +11,9 @@ var parse = function(data){};
 // Gift Form Page
 $("#addGift").on('pageinit', function(){
     
-    
+    $('#submit').on('click', function(e){
+       e.preventDefault(); 
+    });
     // Validation
         var theGift = $('giftForm');
     
@@ -54,7 +56,7 @@ $("#addGift").on('pageinit', function(){
         $.mobile.changePage('#giftList', null, true, true);
         }; // End save to local storage        
         
-        
+     });    
     //Get Local Data
     var getTheData = function (){
         if (localStorage.length === 0){
@@ -119,7 +121,13 @@ $("#addGift").on('pageinit', function(){
     
     
      // Edit Links
-    $('.edit').on('click', editInput);
+    var editLink = '<a href="#" class="edit" data-key="' + id + '">Edit</a>';
+    
+    $('.edit').on('click', function(){
+        var key = $(this).data('key');
+        
+        $('span#key').text(key);
+    });
     
     
     // Delete Item
