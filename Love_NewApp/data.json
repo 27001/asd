@@ -8,8 +8,8 @@
                 "gift"      :["Gift :", "Necklace"],
                 "selectDay" :["Date Purchased: ", "2013-07-25"],
                 "store"     :["Store :", "Best Buy"],
-                "coi"       :["Cost of Item : ", "60"],
-                "textArea"  :["Notes :", "Bought online"],
+                "cost"      :["Cost of Item : ", "60"],
+                "textArea"  :["Notes :", "Bought online"]
             },
             {
                 "forWho"    :["Recipient :", "Leia"],
@@ -17,8 +17,8 @@
                 "gift"      :["Gift :", "Sally's Gift Card"],
                 "selectDay" :["Date Purchased: ", "2013-11-01"],
                 "store"     :["Store :", "Sally's"],
-                "coi"       :["Cost of Item : ", "20"],
-                "textArea"  :["Notes :", "n/a"],
+                "cost"      :["Cost of Item : ", "20"],
+                "textArea"  :["Notes :", "n/a"]
             },
             {
                 "forWho"    :["Recipient :", "Paulette"],
@@ -26,8 +26,8 @@
                 "gift"      :["Gift :", "Lotion"],
                 "selectDay" :["Date Purchased: ", "2013-12-01"],
                 "store"     :["Store :", "Bath & Body"],
-                "coi"       :["Cost of Item : ", "10"],
-                "textArea"  :["Notes :", "n/a"],
+                "cost"      :["Cost of Item : ", "10"],
+                "textArea"  :["Notes :", "n/a"]
             },
             {
                 "forWho"    :["Recipient :", "AJ & Shawny"],
@@ -35,8 +35,8 @@
                 "gift"      :["Gift :", "Mixing Bowl"],
                 "selectDay" :["Date Purchased: ", "2014-06-04"],
                 "store"     :["Store :", "Macy's"],
-                "coi"       :["Cost of Item : ", "40"],
-                "textArea"  :["Notes :", "The day is Finally here!"],
+                "cost"      :["Cost of Item : ", "40"],
+                "textArea"  :["Notes :", "The day is Finally here!"]
             },
             {
                 "forWho"    :["Recipient :", "Mai Mai"],
@@ -44,8 +44,8 @@
                 "gift"      :["Gift :", "Art Supplies"],
                 "selectDay" :["Date Purchased: ", "2013-05-14"],
                 "store"     :["Store :", "Michael's"],
-                "coi"       :["Cost of Item : ", "7"],
-                "textArea"  :["Notes :", "Poster and Markers"],
+                "cost"      :["Cost of Item : ", "7"],
+                "textArea"  :["Notes :", "Poster and Markers"]
             },
             {
                 "forWho"    :["Recipient :", "Leia"],
@@ -53,8 +53,8 @@
                 "gift"      :["Gift :", "Sally's Gift Card"],
                 "selectDay" :["Date Purchased: ", "2013-11-01"],
                 "store"     :["Store :", "Sally's"],
-                "coi"       :["Cost of Item : ", "20"],
-                "textArea"  :["Notes :", "n/a"],
+                "cost"      :["Cost of Item : ", "20"],
+                "textArea"  :["Notes :", "n/a"]
             },
             {
                 "forWho"     :["Recipient :", "ALJ"],
@@ -63,7 +63,7 @@
                 "anniversay" :["Anniversary :", "1999-01-01"],
                 "favs"       :["Favorite Things :", " Candy: Gummy Bears, Food: Neckbones, Store: Kohls"],
                 "hobby"      :["Interests & Hobbies : ", "God, church activities, movies, spending time with fam & friends"],
-                "textArea2"  :["Notes :", "n/a"],
+                "textArea2"  :["Notes :", "n/a"]
             },
             {
                 "forWho"     :["Recipient :", "Tel"],
@@ -72,7 +72,7 @@
                 "anniversay" :["Anniversary :", ""],
                 "favs"       :["Favorite Things :", " Color(s): Green and Blue, Food: Chicken, TV Show(s): Cosby, Married With Children"],
                 "hobby"      :["Interests & Hobbies : ", "God, watching TV, spending time with fam & friends"],
-                "textArea2"  :["Notes :", "n/a"],
+                "textArea2"  :["Notes :", "n/a"]
             },
             {
                 "forWho"     :["Recipient :", "TC"],
@@ -81,7 +81,7 @@
                 "anniversay" :["Anniversary :", ""],
                 "favs"       :["Favorite Things :", " Color(s): Blue"],
                 "hobby"      :["Interests & Hobbies : ", "Basketball, Lebron James"],
-                "textArea2"  :["Notes :", "Thinking of getting a new basketball"],
+                "textArea2"  :["Notes :", "Thinking of getting a new basketball"]
             },
             {
                 "forWho"     :["Recipient :", "Lee"],
@@ -90,7 +90,7 @@
                 "anniversay" :["Anniversary :", ""],
                 "favs"       :["Favorite Things :", " Color(s): Blue"],
                 "hobby"      :["Interests & Hobbies : ", "Animals, watching TV, working"],
-                "textArea2"  :["Notes :", ""],
+                "textArea2"  :["Notes :", ""]
             },
             {
                 "forWho"     :["Recipient :", "Sis J"],
@@ -99,9 +99,9 @@
                 "anniversay" :["Anniversary :", ""],
                 "favs"       :["Favorite Things :", " Color(s): Blue, Purple, Green"],
                 "hobby"      :["Interests & Hobbies : ", "Sewing, gardening, cooking, arts & crafts"],
-                "textArea2"  :["Notes :", "Find out Spiritual Birthday"],
+                "textArea2"  :["Notes :", "Find out Spiritual Birthday"]
             }
         ]
 
-    };
+    }
 

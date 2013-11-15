@@ -3,7 +3,7 @@
 <items>
     <item>
         <recipient>Mom</recipient>
-        <occassion>Mother's Day</occassion> 
+        <occasion>Mother's Day</occasion> 
         <gift>Necklace</gift> 
         <purchased>2013-07-25</purchased> 
         <store>Best Buy</store>
@@ -12,7 +12,7 @@
     </item>
     <item>
         <recipient>Leia</recipient>
-        <occassion>Birthday</occassion> 
+        <occasion>Birthday</occasion> 
         <gift>Sally's Gift Card</gift> 
         <purchased>2013-11-01</purchased> 
         <store>Sally's</store>
@@ -21,7 +21,7 @@
     </item>
     <item>
         <recipient>Jess</recipient>
-        <occassion>Christmas</occassion> 
+        <occasion>Christmas</occasion> 
         <gift>Lotion</gift> 
         <purchased>2013-12-01</purchased> 
         <store>Bath and Body</store>
@@ -30,7 +30,7 @@
     </item>
     <item>
         <recipient>AJ and Shawny</recipient>
-        <occassion>Wedding</occassion> 
+        <occasion>Wedding</occasion> 
         <gift>Mixing Bowl</gift> 
         <purchased>2013-06-04</purchased> 
         <store>Macy's</store>
@@ -39,7 +39,7 @@
     </item>
     <item>
         <recipient>Mai Mai</recipient>
-        <occassion>Birthday</occassion> 
+        <occasion>Birthday</occasion> 
         <gift>Art Supplies</gift> 
         <purchased>2013-05-14</purchased> 
         <store>Michael's</store>
@@ -51,7 +51,7 @@
         <birthday>1980-11-21</birthday> 
         <baptism>1993-10-13</baptism> 
         <anniversary>n/a</anniversary> 
-        <favs>Candy: Gummy Bears, Food: Neckbones, Store: Kohls</favs>
+        <favs>Candy: Gummy Bears, Food: Neck bones, Store: Kohls</favs>
         <interests>God, church activities, movies, spending time with fam and friends</interests>
         <notes>n/a</notes>
     </item>
@@ -70,7 +70,7 @@
         <baptism></baptism> 
         <anniversary></anniversary> 
         <favs>Color(s): Blue</favs>
-        <interest>Basketball, Lebron Jamess</interest>
+        <interest>Basketball, Lebron James</interest>
         <notes>Wants a new basketball christmas</notes>
     </item>
      <item>
@@ -92,4 +92,3 @@
         <notes>Find out date of baptism</notes>
     </item>   
 </items>
-
