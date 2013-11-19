@@ -3,92 +3,92 @@
 <items>
     <item>
         <recipient>Mom</recipient>
-        <occasion>Mother's Day</occasion> 
-        <gift>Necklace</gift> 
-        <purchased>2013-07-25</purchased> 
+        <occasion>Mother's Day</occasion>
+        <gift>Necklace</gift>
+        <purchased>2013-07-25</purchased>
         <store>Best Buy</store>
         <cost>$60</cost>
         <notes>Bought Online</notes>
     </item>
     <item>
         <recipient>Leia</recipient>
-        <occasion>Birthday</occasion> 
-        <gift>Sally's Gift Card</gift> 
-        <purchased>2013-11-01</purchased> 
+        <occasion>Birthday</occasion>
+        <gift>Sally's Gift Card</gift>
+        <purchased>2013-11-01</purchased>
         <store>Sally's</store>
         <cost>$20</cost>
         <notes>n/a</notes>
     </item>
     <item>
         <recipient>Jess</recipient>
-        <occasion>Christmas</occasion> 
-        <gift>Lotion</gift> 
-        <purchased>2013-12-01</purchased> 
+        <occasion>Christmas</occasion>
+        <gift>Lotion</gift>
+        <purchased>2013-12-01</purchased>
         <store>Bath and Body</store>
         <cost>$10</cost>
         <notes>n/a</notes>
     </item>
     <item>
         <recipient>AJ and Shawny</recipient>
-        <occasion>Wedding</occasion> 
-        <gift>Mixing Bowl</gift> 
-        <purchased>2013-06-04</purchased> 
+        <occasion>Wedding</occasion>
+        <gift>Mixing Bowl</gift>
+        <purchased>2013-06-04</purchased>
         <store>Macy's</store>
         <cost>$40</cost>
         <notes>The day is Finally here!</notes>
     </item>
     <item>
         <recipient>Mai Mai</recipient>
-        <occasion>Birthday</occasion> 
-        <gift>Art Supplies</gift> 
-        <purchased>2013-05-14</purchased> 
+        <occasion>Birthday</occasion>
+        <gift>Art Supplies</gift>
+        <purchased>2013-05-14</purchased>
         <store>Michael's</store>
         <cost>$7</cost>
         <notes>Poster and Markers</notes>
     </item>
     <item>
         <recipient>ALJ</recipient>
-        <birthday>1980-11-21</birthday> 
-        <baptism>1993-10-13</baptism> 
-        <anniversary>n/a</anniversary> 
+        <birthday>1980-11-21</birthday>
+        <baptism>1993-10-13</baptism>
+        <anniversary>n/a</anniversary>
         <favs>Candy: Gummy Bears, Food: Neck bones, Store: Kohls</favs>
         <interests>God, church activities, movies, spending time with fam and friends</interests>
         <notes>n/a</notes>
     </item>
      <item>
         <recipient>Tel</recipient>
-        <birthday>1980-11-20</birthday> 
-        <baptism></baptism> 
-        <anniversary></anniversary> 
+        <birthday>1980-11-20</birthday>
+        <baptism></baptism>
+        <anniversary></anniversary>
         <favs>Color(s): Green and Blue, Food: Chicken, TV Show(s): Cosby, Married With Children</favs>
         <interests>God, watching TV, spending time with fam and friends</interests>
         <notes>n/a</notes>
     </item>
     <item>
         <recipient>TC</recipient>
-        <birthday>2000-03-03</birthday> 
-        <baptism></baptism> 
-        <anniversary></anniversary> 
+        <birthday>2000-03-03</birthday>
+        <baptism></baptism>
+        <anniversary></anniversary>
         <favs>Color(s): Blue</favs>
         <interest>Basketball, Lebron James</interest>
         <notes>Wants a new basketball christmas</notes>
     </item>
      <item>
         <recipient>Lee</recipient>
-        <birthday>1953-07-30</birthday> 
-        <baptism></baptism> 
-        <anniversary></anniversary> 
+        <birthday>1953-07-30</birthday>
+        <baptism></baptism>
+        <anniversary></anniversary>
         <favs>Color(s): Blue</favs>
         <interests>Animals, watching TV, working</interests>
         <notes></notes>
-    </item> 
+    </item>
     <item>
         <recipient>Sis J</recipient>
-        <birthday>1957-09-03</birthday> 
-        <baptism></baptism> 
-        <anniversary></anniversary> 
+        <birthday>1957-09-03</birthday>
+        <baptism></baptism>
+        <anniversary></anniversary>
         <favs>Color(s): Blue, Purple, Green</favs>
         <interest>Sewing, gardening, cooking, arts and crafts</interest>
         <notes>Find out date of baptism</notes>
-    </item>   
+    </item>
 </items>
