@@ -27,9 +27,9 @@ var getTheData = function () {
 var autoPopulateData = function () {
     //Actual JSON OBJECT data req.for this to work is coming from data.Json
     //Store the JO into Local Storage
-    for (var n in items) {
-        var id = Math.floor(Math.random() * 100000001);
-        localStorage.setItem(id, JSON.stringify(items[n]));
+    for (var n in json) {
+        id = Math.floor(Math.random() * 100000001);
+        localStorage.setItem(id, JSON.stringify(json[n]));
     }
 }; // End Auto Populate 
 
@@ -42,19 +42,21 @@ var storeData = function (data) {
     }
 
     var detail = {};
-    detail.recipient = $('#recipient').val();
-    detail.occasion = $('#occasion').val();
-    detail.gift = $('#gift').val();
-    detail.purchased = $('#purchased').val();
-    detail.store = $('#store').val();
-    detail.cost = $('#cost').val();
-    detail.notes = $('#textArea').val();
+        detail.recipient = $('#recipient').val();
+        detail.occasion = $('#occasion').val();
+        detail.gift = $('#gift').val();
+        detail.purchased = $('#purchased').val();
+        detail.store = $('#store').val();
+        detail.cost = $('#cost').val();
+        detail.notes = $('#textArea').val();
 
     //Save date to loal storage with Stringify to convert object to strings
     localStorage.setItem(id, JSON.stringify(detail));
     alert("Info Saved!");
-    resetForm();
+    location.reload();
+    //resetForm();
     $.mobile.changePage('#giftList', null, true, true);
+    
 }; // End save to local storage
 
 
@@ -66,24 +68,30 @@ $("#home").on('pageinit', function () {
 // Gift Form Page
 $("#addGift").on('pageinit', function () {
 
-    $('#submit').on('click', function (e) {
+    $('#submit').on('click', function(e) {
         e.preventDefault();
+        
+        storeData();
     }); // End submit prevent default 
+        
+        
+            /*   // Validation
+               var theGift = $('giftForm');
+           
+               theGift.validate({
+                   invalidHandler: function (form, validator) {},
+                   submitHandler: function () {
+                       var data = theGift.serializeArray();
+                       storeData(data);
+                   }
+               }); // End the Gift validate
+            */   
+}); // Gift Form Page End
 
-    // Validation
-    var theGift = $('giftForm');
 
-    theGift.validate({
-        invalidHandler: function (form, validator) {},
-        submitHandler: function () {
-            var data = theGift.serializeArray();
-            storeData(data);
-        }
-    }); // End the Gift validate
-}); 
-
+// Load Json Data
 $('#jsonStorage').on('click', function () {
-    var items = [];
+    //var items = [];
     $.ajax({
         url: "data.json",
         type: "GET",
@@ -115,14 +123,34 @@ $('#xmlStorage').on('click', function () {
 
 
 // Edit Links
-//var editLink = '<a href="#" class="edit" data-key="' + id + '">Edit</a>';
-
 $('.edit').on('click', function () {
     var key = $(this).data('key');
 
     $('span#key').text(key);
-}); // End Edit Link
+}); // End Edit Links
 
+
+
+// Interests and Ideas Page
+$("#addInfo").on('pageinit', function () {
+
+    $('#submit2').on('click', function(e) {
+         e.preventDefault();
+        
+        storeData();
+    });
+
+    $('clear').on('click', function () {
+        location.reload();
+    });
+
+}); // Interests and Ideas Page End
+
+
+
+// Browse Page
+$("#browse").on('pageinit', function () {
+    
 
 // Delete Item
 $('delete').on('click', function () {
@@ -137,7 +165,6 @@ $('delete').on('click', function () {
 }); // End Delete Item
 
 
-
 // Clear Local Storage
 $('clear').on('click', function clearData() {
 if (localStorage.length === 0) {
@@ -150,23 +177,5 @@ if (localStorage.length === 0) {
 }); // End Clear Local Storage 
 
 
-
-// Interests and Ideas Page
-$("#addInfo").on('pageinit', function () {
-
-    $('#submit').on('click', function () {
-        validateData();
-    });
-
-    $('clear').on('click', function () {
-        location.reload();
-    });
-
-}); // Interests and Ideas Page End
-
-
-
-// Browse Page
-$("#browse").on('pageinit', function () {
 
 }); // Browse Page End
