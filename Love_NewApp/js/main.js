@@ -4,7 +4,7 @@ var id;
 var parse = function (data) {};
 var items = [];
 
-//Get Local Data
+// Get/Display Data
 var getTheData = function () {
     if (localStorage.length === 0) {
         alert("There is no data in Local Storage, so default data was added.");
@@ -15,7 +15,7 @@ var getTheData = function () {
         var keyVal = localStorage.getItem(key);
         var jsnObj = JSON.parse(keyVal);
         for (var n in jsnObj) {
-            var newObj = jsnObj[n][0] + " " + jsnObj[n][1];
+            var newObj = jsnObj[n] + " " + jsnObj[n];
             $('#browse').append(newObj + "<br />");
         }
         $('#browse').append(key + " " + '<br />');
@@ -86,29 +86,13 @@ var deleteItem = function () {
 }; // End Delete Item
 
 
-// Make Item Links
-// Links to edit and delete each stored item displayed in local storage
-    function makeDisplayLinks(key, theLinksLi){
-        var editLink = document.createElement('a');
-        editLink.href = "#";
-        editLink.key = key;
-        var editContent = "Edit Content";
-        editLink.addEventListener("click", editTheItem);
-        editLink.innerHTML = editContent;
-        theLinksLi.appendChild(editLink);
-        
-        // Line Break
-        var lineBreak = document.createElement('br');
-        theLinksLi.appendChild(lineBreak);
-        
-        var deleteLink = document.createElement('a');
-        deleteLink.href = "#";
-        deleteLink.key = key;
-        var deleteContent = "Delete Content";
-        deleteLink.addEventListener("click", deleteTheItem);
-        deleteLink.innerHTML = deleteContent;
-        theLinksLi.appendChild(deleteLink);
-    }
+var toChangePage = function (toPageId) {
+        $.mobile.changePage("#" + toPageId , {
+            type:"post",
+            data:$("form").serialize(),
+            reloadPage:true
+        });
+    };
 
 
 // Home Page
@@ -123,22 +107,10 @@ $("#addGift").on('pageinit', function () {
         e.preventDefault();
         
         storeData();
-        
-       location.reload();
-    }); // End submit prevent default 
-        
-        
-            /*   // Validation
-               var theGift = $('giftForm');
-           
-               theGift.validate({
-                   invalidHandler: function (form, validator) {},
-                   submitHandler: function () {
-                       var data = theGift.serializeArray();
-                       storeData(data);
-                   }
-               }); // End the Gift validate
-            */   
+        location.reload();
+      
+    }); // End submit prevent default
+    
 }); // Gift Form Page End
 
 
@@ -158,9 +130,10 @@ $('.edit').on('click', function () {
 $("#addInfo").on('pageinit', function () {
 
     $('#submit2').on('click', function(e) {
-         e.preventDefault();
+        e.preventDefault();
         
         storeData();
+        location.reload();
     });
 
 }); // Interests and Ideas Page End
@@ -169,84 +142,90 @@ $("#addInfo").on('pageinit', function () {
 
 // Browse Page
 $("#browse").on('pageinit', function () {
+
+    // Load Json Data
+   $('#jsonStorage').on('click', function () {
+       $.ajax({
+           url: "data.json",
+           type: "GET",
+           dataType: "json",
+           success: function (data, status) {
+               console.log(status, data);
+           },
+           error: function (error, parseerror) {
+               console.log(error, parseerror);
+           }
+       });
+   }); // End Load JSON Data
+   
+   
+   // Load XML Data
+   $('#xmlStorage').on('click', function () {
+       $.ajax({
+           url: "data.xml",
+           type: "GET",
+           dataType: "xml",
+           success: function (data, status) {
+               console.log(status, data);
+           },
+           error: function (error, parseerror) {
+               console.log(error, parseerror);
+           }
+       });
+   }); // End Load XML Data
+   
+   
+   
+   // Clear Stored Data Link
+   $('#clearData').on('click', function(e) {
+       e.preventDefault();
+       
+       clearData();
+   }); // End Clear Data Link
     
-// Load Json Data
-$('#jsonStorage').on('click', function () {
-    //var items = [];
-    $.ajax({
-        url: "data.json",
-        type: "GET",
-        dataType: "json",
-        success: function (data, status) {
-            console.log(status, data);
-        },
-        error: function (error, parseerror) {
-            console.log(error, parseerror);
-        }
-    });
-}); // End Load JSON Data
-
-
-// Load XML Data
-$('#xmlStorage').on('click', function () {
-    $.ajax({
-        url: "data.xml",
-        type: "GET",
-        dataType: "xml",
-        success: function (data, status) {
-            console.log(status, data);
-        },
-        error: function (error, parseerror) {
-            console.log(error, parseerror);
-        }
-    });
-}); // End Load XML Data
-
-
-
-
-// Submit Button
-$('#submit').on('click', function(e) {
-    e.preventDefault();
+    
+   // Display Data Link
+   $('#displayData').on('click', function(e) {
+       e.preventDefault();
+       
+       getTheData();
+   }); // End Display Data Link
+   
+       
+   // Delete Item
+   $('deleteItem').on('click', function(e) {
+       e.preventDefault();
+       
+       deleteItem();
+       }); // End Delete Item
+   
+       
+   // Edit Links
+   $('editLink').on('click', function (e) {
+        e.preventDefault();
         
-    storeData();
-    resetForm();
-    }); // End submit prevent default
-
-// Clear Data Link
-$('#clearData').on('click', function(e) {
-    e.preventDefault();
-    
-    clearData();
-    }); // End Clear Data Link
- 
- 
-// Display Data Link
-$('#displayData').on('click', function(e) {
-    e.preventDefault();
-    
-    getTheData();
-    }); // End Display Data Link
-
-    
-// Delete Item
-$('delete').on('click', function(e) {
-    e.preventDefault();
-    
-    deleteItem();
-    }); // End Delete Item
-
-    
-// Edit Links
-$('edit').on('click', function () {
-    var key = $(this).data('key');
-
-    //$('span#key').text(key);
-}); // End Edit Links    
-    
-    
-   /* var displayData = $('displayData');
-    displayData.addEventListener("click", getTheData);    
-     */  
-
+        //var key = $(this).data('key');
+   
+       //$('span#key').text(key);
+   }); // End Edit Links    
+       
+       
+  
 }); // Browse Page End
+
+
+
+            /*   // Validation
+               var theGift = $('giftForm');
+           
+               theGift.validate({
+                   invalidHandler: function (form, validator) {},
+                   submitHandler: function () {
+                       var data = theGift.serializeArray();
+                       storeData(data);
+                   }
+               }); // End the Gift validate
+            */
+            
+            
+          
