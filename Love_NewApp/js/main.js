@@ -2,6 +2,7 @@
 
 var id;
 var parse = function (data) {};
+var items = [];
 
 //Get Local Data
 var getTheData = function () {
@@ -15,10 +16,10 @@ var getTheData = function () {
         var jsnObj = JSON.parse(keyVal);
         for (var n in jsnObj) {
             var newObj = jsnObj[n][0] + " " + jsnObj[n][1];
-            $('#giftList').append(newObj + "<br />");
+            $('#browse').append(newObj + "<br />");
         }
-        $('#giftList').append(key + " " + '<br />');
-        $('#giftList').append('<a href="#" data-key + key[n] + class="edit">Edit></a> | <a href="#" data-key + key[n] + class="delete">Delete></a>');
+        $('#browse').append(key + " " + '<br />');
+        $('#browse').append('<a href="#" data-key + key[n] + class="edit">Edit></a> | <a href="#" data-key + key[n] + class="delete">Delete></a>');
         $('.edit').attr('data-key', key[n]);
     }
 }; // End Get Local Data
@@ -27,9 +28,9 @@ var getTheData = function () {
 var autoPopulateData = function () {
     //Actual JSON OBJECT data req.for this to work is coming from data.Json
     //Store the JO into Local Storage
-    for (var n in json) {
+    for (var n in items) {
         id = Math.floor(Math.random() * 100000001);
-        localStorage.setItem(id, JSON.stringify(json[n]));
+        localStorage.setItem(id, JSON.stringify(items[n]));
     }
 }; // End Auto Populate 
 
@@ -54,10 +55,60 @@ var storeData = function (data) {
     localStorage.setItem(id, JSON.stringify(detail));
     alert("Info Saved!");
     location.reload();
-    //resetForm();
-    $.mobile.changePage('#giftList', null, true, true);
+    
+    $.mobile.changePage('#browse', null, true, true);
+    
     
 }; // End save to local storage
+
+// Clear Local Storage
+var clearData = function () {
+    if (localStorage.length === 0) {
+        alert("There is no data to clear.");
+    } else {
+        localStorage.clear();
+        alert("All data will be cleared!");
+        location.reload();
+    }    
+}; // End Clear Local Storage
+
+
+// Delete Item
+var deleteItem = function () {
+    var askQ = confirm("Are you sure you want to delete entry?");
+    if (askQ) {
+        localStorage.removeItem($('.delete').data('key'));
+        location.reload();
+        alert("Info was deleted!");
+    } else {
+        alert("Info was NOT deleted!");
+    }
+}; // End Delete Item
+
+
+// Make Item Links
+// Links to edit and delete each stored item displayed in local storage
+    function makeDisplayLinks(key, theLinksLi){
+        var editLink = document.createElement('a');
+        editLink.href = "#";
+        editLink.key = key;
+        var editContent = "Edit Content";
+        editLink.addEventListener("click", editTheItem);
+        editLink.innerHTML = editContent;
+        theLinksLi.appendChild(editLink);
+        
+        // Line Break
+        var lineBreak = document.createElement('br');
+        theLinksLi.appendChild(lineBreak);
+        
+        var deleteLink = document.createElement('a');
+        deleteLink.href = "#";
+        deleteLink.key = key;
+        var deleteContent = "Delete Content";
+        deleteLink.addEventListener("click", deleteTheItem);
+        deleteLink.innerHTML = deleteContent;
+        theLinksLi.appendChild(deleteLink);
+    }
 
 
 // Home Page
@@ -72,6 +123,8 @@ $("#addGift").on('pageinit', function () {
         e.preventDefault();
         
         storeData();
+        
+       location.reload();
     }); // End submit prevent default 
         
         
@@ -89,6 +142,34 @@ $("#addGift").on('pageinit', function () {
 }); // Gift Form Page End
 
 
+
+
+
+// Edit Links
+$('.edit').on('click', function () {
+    var key = $(this).data('key');
+
+    $('span#key').text(key);
+}); // End Edit Links
+
+
+
+// Interests and Ideas Page
+$("#addInfo").on('pageinit', function () {
+
+    $('#submit2').on('click', function(e) {
+         e.preventDefault();
+        
+        storeData();
+    });
+
+}); // Interests and Ideas Page End
+
+
+
+// Browse Page
+$("#browse").on('pageinit', function () {
+    
 // Load Json Data
 $('#jsonStorage').on('click', function () {
     //var items = [];
@@ -122,60 +203,50 @@ $('#xmlStorage').on('click', function () {
 }); // End Load XML Data
 
 
+
+
+// Submit Button
+$('#submit').on('click', function(e) {
+    e.preventDefault();
+        
+    storeData();
+    resetForm();
+    }); // End submit prevent default
+
+// Clear Data Link
+$('#clearData').on('click', function(e) {
+    e.preventDefault();
+    
+    clearData();
+    }); // End Clear Data Link
+ 
+ 
+// Display Data Link
+$('#displayData').on('click', function(e) {
+    e.preventDefault();
+    
+    getTheData();
+    }); // End Display Data Link
+
+    
+// Delete Item
+$('delete').on('click', function(e) {
+    e.preventDefault();
+    
+    deleteItem();
+    }); // End Delete Item
+
+    
 // Edit Links
-$('.edit').on('click', function () {
+$('edit').on('click', function () {
     var key = $(this).data('key');
 
-    $('span#key').text(key);
-}); // End Edit Links
-
-
-
-// Interests and Ideas Page
-$("#addInfo").on('pageinit', function () {
-
-    $('#submit2').on('click', function(e) {
-         e.preventDefault();
-        
-        storeData();
-    });
-
-    $('clear').on('click', function () {
-        location.reload();
-    });
-
-}); // Interests and Ideas Page End
-
-
-
-// Browse Page
-$("#browse").on('pageinit', function () {
+    //$('span#key').text(key);
+}); // End Edit Links    
     
-
-// Delete Item
-$('delete').on('click', function () {
-    var askQ = confirm("Are you sure you want to delete entry?");
-    if (askQ) {
-        localStorage.remove($('.delete').data('key'));
-        location.reload();
-        alert("Info was deleted!");
-    } else {
-        alert("Info was NOT deleted!");
-    }
-}); // End Delete Item
-
-
-// Clear Local Storage
-$('clear').on('click', function clearData() {
-if (localStorage.length === 0) {
-    alert("There is no data to clear.");
-} else {
-    localStorage.clear();
-    alert("All data will be cleared!");
-    location.reload();
-}
-}); // End Clear Local Storage 
-
-
+    
+   /* var displayData = $('displayData');
+    displayData.addEventListener("click", getTheData);    
+     */  
 
 }); // Browse Page End

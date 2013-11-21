@@ -132,29 +132,6 @@
         </section> <!--Gift content page end-->
         
         
-        <!--Gift List Page-->
-        <section data-role="page" id="giftList" data-add-back-btn="true">
-            <header data-role="header" data-position="fixed"><h1>Past Gift List</h1></header>
-            
-            <section data-role="content">
-                <ul>
-                    <li></li>
-                </ul>
-            </section>
-                <!-- Navigation Bar -->
-                <footer data-role="footer" data-position="fixed"><h1>G!FT GiV3R</h1>
-                    <nav data-role="navbar" data-position="fixed">
-                        <ul>
-                            <li><a href="#home" data-icon="home" class="ui--btn-active" data-iconpos="top">Home</a></li>
-                            <li><a href="#addGift" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Gift</a></li>
-                            <li><a href="#addInfo" data-icon="star" class="ui--btn-active" data-iconpos="top" data-ajax="false">Interests</a></li>
-                            <li><a href="#browse" data-icon="grid" class="ui--btn-active" data-iconpos="top">Browse</a></li>
-                        </ul>       
-                    </nav> <!--navbar-->
-                </footer>     
-            </section><!--End gift list page-->
-        
-        
         <!--Interests and Ideas Page-->
          <section data-role="page" id="addInfo" data-add-back-btn="true">
             <header data-role="header" data-position="fixed"><h1>About Receiver</h1></header>
@@ -235,10 +212,13 @@
             
             <section data-role="content">
                 <input type="search" name="search" id="appSearch1" placeholder=" Search" data-mini="true" /><br />
+                 <ul>
+                    <li></li>
+                </ul>
                 <a href="#" id="jsonStorage" data-role="button" data-icon="arrow-r" data-iconpos="right">Load JSON Data</a>
                 <a href="#" id="xmlStorage" data-role="button" data-icon="arrow-r" data-iconpos="right">Load XML Data</a>
             </section>
-            
+           <p style="text-align: center"><a href="#" id="clearData"> Clear Stored Data</a> <br> <a href="#" id="displayData"> Display Data</a></p>
            <!-- Navigation Bar -->
             <footer data-role="footer" data-position="fixed"><h1>G!FT GiV3R</h1>
                 <nav data-role="navbar" data-position="fixed">
