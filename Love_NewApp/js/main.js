@@ -15,11 +15,14 @@ var getTheData = function () {
         var keyVal = localStorage.getItem(key);
         var jsnObj = JSON.parse(keyVal);
         for (var n in jsnObj) {
-            var newObj = jsnObj[n] + " " + jsnObj[n];
+            var newObj = jsnObj[n];
             $('#browse').append(newObj + "<br />");
         }
         $('#browse').append(key + " " + '<br />');
-        $('#browse').append('<a href="#" data-key + key[n] + class="edit">Edit></a> | <a href="#" data-key + key[n] + class="delete">Delete></a>');
+        //var editLink = '<a href="#" class="edit" data-key="' + id + '">Edit<a/>';
+        //var deleteLink='<a href="#" class="delete" data-key="' + id + '">Delete<a/>';
+        $('#browse').append('<a href="#" class="edit" data-key="' + key[n] + '">Edit<a/> | <a href="#" data-key + key[n] + class="delete">Delete</a>');
+        //$('#browse').append('<a href="#" data-key + key[n] + class="edit">Edit</a> | <a href="#" data-key + key[n] + class="delete">Delete</a>');
         $('.edit').attr('data-key', key[n]);
     }
 }; // End Get Local Data
@@ -54,9 +57,25 @@ var storeData = function (data) {
     //Save date to loal storage with Stringify to convert object to strings
     localStorage.setItem(id, JSON.stringify(detail));
     alert("Info Saved!");
-    location.reload();
+    //location.reload();
     
     $.mobile.changePage('#browse', null, true, true);
+    
+    // Save to storage detail for Interest Page
+        detail.forWho = $('#forWho').val();
+        detail.birthday = $('#birthday').val();
+        detail.baptism = $('#baptism').val();
+        detail.anniversary = $('#anniversary').val();
+        detail.favs = $('#favs').val();
+        detail.hobby = $('#hobby').val();
+        detail.myNotes = $('#textArea2').val();
+        
+    //Save date to loal storage with Stringify to convert object to strings
+    localStorage.setItem(id, JSON.stringify(detail));
+    alert("Info Saved!");
+    //location.reload();
+    
+    $.mobile.changePage('#browse', null, true, true);    
     
     
 }; // End save to local storage
@@ -77,7 +96,7 @@ var clearData = function () {
 var deleteItem = function () {
     var askQ = confirm("Are you sure you want to delete entry?");
     if (askQ) {
-        localStorage.removeItem($('.delete').data('key'));
+        localStorage.removeItem($('.deleteItem').data('key'));
         location.reload();
         alert("Info was deleted!");
     } else {
@@ -85,7 +104,7 @@ var deleteItem = function () {
     }
 }; // End Delete Item
 
-
+/*
 var toChangePage = function (toPageId) {
         $.mobile.changePage("#" + toPageId , {
             type:"post",
@@ -93,6 +112,8 @@ var toChangePage = function (toPageId) {
             reloadPage:true
         });
     };
+
+*/
 
 
 // Home Page
@@ -113,16 +134,6 @@ $("#addGift").on('pageinit', function () {
     
 }); // Gift Form Page End
 
-
-
-
-
-// Edit Links
-$('.edit').on('click', function () {
-    var key = $(this).data('key');
-
-    $('span#key').text(key);
-}); // End Edit Links
 
 
 
@@ -192,22 +203,24 @@ $("#browse").on('pageinit', function () {
    }); // End Display Data Link
    
        
-   // Delete Item
-   $('deleteItem').on('click', function(e) {
+   // Delete Item Link
+   $('.delete').on('click', function(e) {
        e.preventDefault();
        
-       deleteItem();
-       }); // End Delete Item
+       var id = $(this).data('key');
+       
+       localStorage.removeItem('id');
+    }); // End Delete Item Link
    
        
-   // Edit Links
-   $('editLink').on('click', function (e) {
+    // Edit Links
+    $('.edit').on('click', function(e) {
         e.preventDefault();
         
-        //var key = $(this).data('key');
-   
-       //$('span#key').text(key);
-   }); // End Edit Links    
+        var id = $(this).data('key');
+    
+        localStorage.removeItem('key');
+    }); // End Edit Links
        
        
   
