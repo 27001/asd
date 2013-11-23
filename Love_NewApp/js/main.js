@@ -76,8 +76,6 @@ var storeData = function (data) {
     //location.reload();
     
     $.mobile.changePage('#browse', null, true, true);    
-    
-    
 }; // End save to local storage
 
 // Clear Local Storage
