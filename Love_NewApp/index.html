@@ -57,6 +57,7 @@
                     
                     <!--Recipient-->
                     <section data-role="fieldcontain">
+                        <ul id="errors2"></ul>
                         <label for="recipient">For Who?</label>
                         <input type="text" name="recipient" id="recipient" placeholder="Recipient Name" />
                     </section> <!--end of for who-->
@@ -143,6 +144,7 @@
                     
                     <!--For Who-->
                     <section data-role="fieldcontain">
+                        <ul id="errors2"></ul>
                         <label for="forWho">For Who?</label>
                         <input type="text" name="forWho" id="forWho" placeholder="Recepient Name" />
                     </section> <!--end of for who-->
@@ -211,7 +213,7 @@
          <section data-role="page" id="browse" data-add-back-btn="true">
             <header data-role="header" data-position="fixed"><h1>Browse</h1></header>
             
-            <section data-role="content">
+            <section data-role="content">    
                 <input type="search" name="search" id="appSearch1" placeholder=" Search" data-mini="true" /><br />
                  <ul>
                 </ul>
@@ -231,10 +233,8 @@
                 </nav> <!--navbar-->
             </footer>     
         </section> <!--browse page end-->
-    </div> <!--main end-->
-    
-    
-    
+
+        
     <!--Gift List Page-->
         <section data-role="page" id="view" data-add-back-btn="true">
             <header data-role="header" data-position="fixed"><h1>Past Gift List</h1></header>
@@ -246,8 +246,6 @@
                 <p style="text-align: center"><a href="#" id= "clearData"> Clear Stored Data</a> <br> <a href="#" id="displayData"> Display Data</a></p>
                 <p>&nbsp;</p>
                 <section data-role="listview" id="viewList"></section>
-            
-            
             </section> <!--Content End-->
             
                 <!-- Navigation Bar -->
@@ -262,7 +260,8 @@
                     </nav> <!--navbar-->
                 </footer>     
             </section><!--End gift list page-->
-
+        </div> <!--main end-->
+        
     <!-- JavaScript under here -->
     <script src="libs/jquery-2.0.3.min.js"></script>
     <script src="libs/jquery.mobile-1.3.2.min.js"></script>
