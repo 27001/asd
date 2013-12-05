@@ -8,6 +8,7 @@ $("#home").on('pageinit', function () {
 
 
 
+
 // Gift Form Page
 $("#addGift").on('pageinit', function () {
 
@@ -15,10 +16,12 @@ $("#addGift").on('pageinit', function () {
 
 
 
+
 // Interests and Ideas Page
 $("#addInfo").on('pageinit', function () {
 
 }); // Interests and Ideas Page End
+
 
 
 
