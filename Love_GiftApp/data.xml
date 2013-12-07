@@ -1,2 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<items>
+    <item>
+        <recipient>Mom</recipient>
+        <occasion>Mother's Day</occasion>
+        <gift>Necklace</gift>
+        <purchased>2013-07-25</purchased>
+        <store>Best Buy</store>
+        <cost>$60</cost>
+        <notes>Bought Online</notes>
+    </item>
+    <item>
+        <recipient>Leia</recipient>
+        <occasion>Birthday</occasion>
+        <gift>Sally's Gift Card</gift>
+        <purchased>2013-11-01</purchased>
+        <store>Sally's</store>
+        <cost>$20</cost>
+        <notes>n/a</notes>
+    </item>
+    <item>
+        <recipient>Jess</recipient>
+        <occasion>Christmas</occasion>
+        <gift>Lotion</gift>
+        <purchased>2013-12-01</purchased>
+        <store>Bath and Body</store>
+        <cost>$10</cost>
+        <notes>n/a</notes>
+    </item>
+    <item>
+        <recipient>AJ and Shawny</recipient>
+        <occasion>Wedding</occasion>
+        <gift>Mixing Bowl</gift>
+        <purchased>2013-06-04</purchased>
+        <store>Macy's</store>
+        <cost>$40</cost>
+        <notes>The day is Finally here!</notes>
+    </item>
+    <item>
+        <recipient>Mai Mai</recipient>
+        <occasion>Birthday</occasion>
+        <gift>Art Supplies</gift>
+        <purchased>2013-05-14</purchased>
+        <store>Michael's</store>
+        <cost>$7</cost>
+        <notes>Poster and Markers</notes>
+    </item>
+     <item>
+        <recipient>Crystal</recipient>
+        <occasion>Christmas</occasion>
+        <gift>Purse</gift>
+        <purchased>2013-12-12</purchased>
+        <store>Walmart</store>
+        <cost>$30</cost>
+        <notes>n/a</notes>
+    </item>
+    <item>
+        <recipient>Mark</recipient>
+        <occasion>Valentine's Day</occasion>
+        <gift>Watch</gift>
+        <purchased>2013-02-01</purchased>
+        <store>Macy's</store>
+        <cost>$60</cost>
+        <notes>30% off sale</notes>
+    </item>
+    <item>
+        <recipient>Autumn</recipient>
+        <occasion>Birthday</occasion>
+        <gift>Sweater</gift>
+        <purchased>2013-05-14</purchased>
+        <store>Amazon</store>
+        <cost>$15</cost>
+        <notes>Sent Directly to address</notes>
+    </item>
+    <item>
+        <recipient>ALJ</recipient>
+        <occasion>Mother's Day</occasion>
+        <gift>Stuffed Giraffe</gift>
+        <purchased>2013-05-03</purchased>
+        <store>Target</store>
+        <cost>$25</cost>
+        <notes>bought online, but able to return in store</notes>
+    </item>
+    <item>
+        <recipient>Sha</recipient>
+        <occasion>Just Because</occasion>
+        <gift>Tablet</gift>
+        <purchased>2013-12-07</purchased>
+        <store>Craigslist</store>
+        <cost>$220</cost>
+        <notes>Tablet and Charger only</notes>
+    </item>
+</items>
+
