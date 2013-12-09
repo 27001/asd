@@ -114,7 +114,7 @@ $("#addGift").on('pageinit', function () {
 $("#display").on('pageinit', function () {
  
     
-   // Load Json Data
+    // Load Json Data
    $('#jsonStorage').on('click', function () {
        $.ajax({
            url: "data.json",
