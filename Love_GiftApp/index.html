@@ -36,7 +36,7 @@
             
             <nav>
                 <a href="#addGift" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Gift</a>
-                <a href="#browse" data-role="button" data-icon="arrow-r" data-iconpos="right">Browse</a>
+                <a href="#display" data-role="button" data-icon="arrow-r" data-iconpos="right">Display Gifts</a>
             </nav>
             
             <footer data-role="footer" data-position="fixed"><h1>G!FT GiV3R</h1></footer>
@@ -111,7 +111,7 @@
                     <ul>
                         <li><a href="#home" data-icon="home" class="ui--btn-active" data-iconpos="top">Home</a></li>
                         <li><a href="#addGift" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Gift</a></li>
-                        <li><a href="#browse" data-icon="grid" class="ui--btn-active" data-iconpos="top">Browse</a></li>
+                        <li><a href="#display" data-icon="grid" class="ui--btn-active" data-iconpos="top">Display Gifts</a></li>
                     </ul>       
                 </nav> <!--navbar-->
             </footer>     
@@ -119,13 +119,16 @@
         
         
         
-        <!--Browse Page-->
-        <section data-role="page" id="browse" data-add-back-btn="true">
+        <!--Display Page-->
+        <section data-role="page" id="display" data-add-back-btn="true">
             <header data-role="header" data-position="fixed"><h1>Browse</h1></header>
             
             <section data-role="content">    
-                <input type="search" name="search" id="appSearch1" placeholder=" Search" data-mini="true" /><br />
+                <input type="search" name="search" id="appSearch1" placeholder=" Search" data-mini="true" /><br>
+                <a href="#" id="jsonStorage" data-role="button" data-icon="arrow-r" data-iconpos="right">Load JSON Data</a>
+                <a href="#" id="xmlStorage" data-role="button" data-icon="arrow-r" data-iconpos="right">Load XML Data</a>
             </section> <!--Content End-->
+            <p style="text-align: center"><a href="#" id="clearData"> Clear Stored Data</a> <br> <a href="#" id="displayData"> Display Data</a></p>
           
              <!-- Navigation Bar -->
             <footer data-role="footer" data-position="fixed"><h1>G!FT GiV3R</h1>
@@ -133,11 +136,11 @@
                     <ul>
                         <li><a href="#home" data-icon="home" class="ui--btn-active" data-iconpos="top">Home</a></li>
                         <li><a href="#addGift" data-icon="plus" class="ui--btn-active" data-iconpos="top" data-ajax="false">Add Gift</a></li>
-                        <li><a href="#browse" data-icon="grid" class="ui--btn-active" data-iconpos="top">Browse</a></li>
+                        <li><a href="#display" data-icon="grid" class="ui--btn-active" data-iconpos="top">Display Gifts</a></li>
                     </ul>       
                 </nav> <!--navbar-->
             </footer>     
-        </section> <!--browse page end-->
+        </section> <!--display page end-->
 
     </div> <!--main end-->
     
