@@ -1,5 +1,4 @@
 {
-
     "items":[
 
            {
@@ -92,6 +91,6 @@
                 "cost" :["Cost of Item : ", "$220"],
                 "textArea" :["Notes :", "Tablet and charger only"]
             }
-            
-    ]
-}    
+        ]
+ }
+
