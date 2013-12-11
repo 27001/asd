@@ -20,7 +20,7 @@ var getTheData = function () {
             $('#display').append(newObj + "<br />");
         }
         $('#display').append(key + " " + '<br />');
-        $('#display').append('<a href="#" class="edit" data-key="' + key[n] + '">Edit<a/> | <a href="#" data-key + key[n] + class="delete">Delete</a>');
+        $('#display').append('<a href="#" class="edit" data-key="' + key[n] + '">Edit<a/> | <a href="#" data-key + key[n] + class="delete">Delete</a><br><br>');
     }
 }; // End Get Local Data
 
@@ -56,7 +56,6 @@ var storeData = function (data) {
     //Save date to loal storage with Stringify to convert object to strings
     localStorage.setItem(id, JSON.stringify(detail));
     alert("Info Saved!");
-    //location.reload();
     
     $.mobile.changePage('#display', null, true, true);
 }; // End Save to Local Storage Function
@@ -101,7 +100,8 @@ $("#addGift").on('pageinit', function () {
         e.preventDefault();
         
         storeData();
-        location.reload();
+      
+        $('form')[0].reset();
       
     }); // End submit prevent default
 
@@ -122,9 +122,9 @@ $("#display").on('pageinit', function () {
            dataType: "json",
            success: function (data, status) {
                console.log(status, data);
-           },
+        /*   },
            error: function (error, parseerror) {
-               console.log(error, parseerror);
+               console.log(error, parseerror); */
            }
        });
    }); // End Load JSON Data
@@ -160,6 +160,7 @@ $("#display").on('pageinit', function () {
        e.preventDefault();
        
        getTheData();
+       
    }); // End Display Data Link
    
        
