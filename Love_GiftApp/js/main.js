@@ -39,7 +39,7 @@ var autoPopulateData = function () {
 // Save to local storage
 var storeData = function (data) {
     if ($('#key').val() == '') {
-        id = Math.floor(Math.random() * 100000001);
+        id = Math.floor(Math.random() * 100000001)
     } else {
         id = $('#key').val();
     }
