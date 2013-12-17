@@ -20,8 +20,30 @@ var getTheData = function () {
             $('#display').append(newObj + "<br />");
         }
         $('#display').append(key + " " + '<br />');
-        $('#display').append('<a href="#" class="edit" data-key="' + key[n] + '">Edit<a/> | <a href="#" data-key + key[n] + class="delete">Delete</a><br><br>');
+        $('#display').append('<a href="#" class="edit" data-key="' + key + '">Edit<a/> | <a href="#" class="delete data-key"' + key + '">Delete</a><br><br>');
     }
+    
+    // Delete Item Link
+   $('.delete').on('click', function(e) {
+       e.preventDefault();
+       var id = $(this).data('key');
+       $('span#key').text(key);
+       deleteItem(id); 
+    }); // End Delete Item Link
+   
+    // Edit Item Link
+    $('.edit').on('click', function(e){
+        e.preventDefault();
+        
+        console.log('edit is clicked');
+        var id = $(this).data('key');
+        
+        console.log(keyVal);
+        
+        $('span#key').text(key);
+        editItem(keyVal);
+    }); // End Edit Item Link
+    
 }; // End Get Local Data
 
 
@@ -74,16 +96,24 @@ var clearData = function () {
 
 
 // Delete Item
-var deleteItem = function () {
+var deleteItem = function (id) {
     var askQ = confirm("Are you sure you want to delete entry?");
     if (askQ) {
-        localStorage.removeItem($('.deleteItem').data('key'));
+        localStorage.removeItem(id);
         location.reload();
         alert("Info was deleted!");
     } else {
         alert("Info was NOT deleted!");
     }
 }; // End Delete Item
+
+
+// Edit Item
+var editItem = function (keyVal) {
+        localStorage.getItem(keyVal);
+      
+}; // Edit Item
+
                
 // Home Page
 $("#home").on('pageinit', function () {
@@ -121,7 +151,25 @@ $("#display").on('pageinit', function () {
            type: "GET",
            dataType: "json",
            success: function (data, status) {
-               console.log(status, data);
+                console.log(status, data);
+                $('#display').empty();
+                for (i = 0; i< data.items.length; i++) {
+                    var key = localStorage.key(i);
+                    var keyVal = JSON.parse(localStorage.getItem(key));
+                    //console.log(data.items[i].purchased[1]);
+                    var makeList = $("<li></li>");
+                    var makeLi = $("<strong>"+data.items[i].recipient[1]+"</strong>"+
+                        "<p>"+data.items[i].occasion[1]+"</p>"+
+                        "<p>"+data.items[i].gift[1]+"</p>" +
+                        "<p>"+data.items[i].purchased[1]+"</p>" +
+                        "<p>"+data.items[i].store[1]+"</p>" +
+                        "<p>"+data.items[i].cost[1]+"</p>" +
+                        "<p>"+data.items[i].notes[1]+"</p><br>");
+                    var makeLink = $("<p id='"+key+"'></p>");
+                    makeLink.html(makeLi);
+                    makeList.append(makeLink).appendTo("#display");
+                };  
+               $("ul").listview();
         /*   },
            error: function (error, parseerror) {
                console.log(error, parseerror); */
@@ -138,9 +186,27 @@ $("#display").on('pageinit', function () {
            dataType: "xml",
            success: function (data, status) {
                console.log(status, data);
-           },
+               $('#display').empty();
+                for (i = 0; i< items.length; i++) {
+                    var key = localStorage.key(i);
+                    var keyVal = xml.parse(localStorage.getItem(key));
+                    console.log(data.items[i].purchased[1]);
+                    var makeList = $("<li></li>");
+                    var makeLi = $("<strong>"+items[i].recipient[1]+"</strong>"+
+                        "<p>"+items[i].occasion[1]+"</p>"+
+                        "<p>"+items[i].gift[1]+"</p>" +
+                        "<p>"+items[i].purchased[1]+"</p>" +
+                        "<p>"+items[i].store[1]+"</p>" +
+                        "<p>"+items[i].cost[1]+"</p>" +
+                        "<p>"+items[i].notes[1]+"</p><br>");
+                    var makeLink = $("<p id='"+key+"'></p>");
+                    makeLink.html(makeLi);
+                    makeList.append(makeLink).appendTo("#display");
+                };  
+               $("ul").listview();
+         /*  },
            error: function (error, parseerror) {
-               console.log(error, parseerror);
+               console.log(error, parseerror); */
            }
        });
    }); // End Load XML Data
@@ -162,22 +228,37 @@ $("#display").on('pageinit', function () {
        getTheData();
        
    }); // End Display Data Link
-   
-       
-   // Delete Item Link
-   $('.delete').on('click', function(e) {
-       e.preventDefault();
-       
-       var id = $(this).data('key');
-       $('span#key').text(key);
-       localStorage.removeItem('id');
-    }); // End Delete Item Link
-    
-    $('.edit').on('click', function(e){
-            e.preventDefault();
-            var key = $(this).data('key');
-            $('span#key').text(key);
-        });
 
 }); // Display Gifts Page End
+
+
+
+
+/*
+// Error Link / Form Validation
+		var myEntForm = $('#entForm');
+				entErrorLink = $('#entErrorLink');
+				
+		 	myEntForm.validate({
+		 		invalidHandler: function(form, validator){
+		 			entErrorLink.click();
+		 			var htmlString = '';
+		 			for(var key in validator.submitted){
+		 				var label  = $('label[for^="'+ key +'"]').not('[generated]');
+		 				var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+		 				var theFieldName = legend.length ? legend.text() : label.text();
+		 				htmlString += '<li>'+ theFieldName +'</li>';
+		 			};
+		 			$("#addItem2Errors ul" ).html(htmlString);
+		 		},
+		 		submitHandler: function(){
+				  var data = myEntForm.serializeArray();
+				  	storeData(data);
+			 	}
+			});
+		
+
+
+
+*/
 
