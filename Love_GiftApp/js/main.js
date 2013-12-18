@@ -3,6 +3,40 @@
 var id;
 var parse = function (data) {};
 var items = [];
+var key = localStorage.key;
+var keyVal = localStorage.getItem(key);
+var jsnObj = JSON.parse(keyVal);
+
+
+// Delete Item
+var deleteItem = function () {
+    var askQ = confirm("Are you sure you want to delete entry?");
+    if (askQ) {
+        localStorage.removeItem(this.key);
+        location.reload();
+        alert("Info was deleted!");
+    } else {
+        alert("Info was NOT deleted!");
+    }
+}; // End Delete Item
+
+
+// Edit Item
+var editItem = function (keyVal) {
+        localStorage.getItem(keyVal);
+        //editItem.key = this.key;
+}; // Edit Item
+
+
+// Auto Populate Local Storage
+var autoPopulateData = function () {
+    //Actual JSON OBJECT data req.for this to work is coming from data.Json
+    //Store the JO into Local Storage
+    for (var n in items) {
+        id = Math.floor(Math.random() * 100000001);
+        localStorage.setItem(id, JSON.stringify(items[n]));
+    }
+}; // End Auto Populate
 
 
 // Get/Display Data
@@ -26,9 +60,9 @@ var getTheData = function () {
     // Delete Item Link
    $('.delete').on('click', function(e) {
        e.preventDefault();
-       var id = $(this).data('key');
-       $('span#key').text(key);
-       deleteItem(id); 
+       //var id = $(this).data('key');
+       //$('span#key').text(key);
+       deleteItem();
     }); // End Delete Item Link
    
     // Edit Item Link
@@ -43,25 +77,17 @@ var getTheData = function () {
         $('span#key').text(key);
         editItem(keyVal);
     }); // End Edit Item Link
+   
     
 }; // End Get Local Data
 
 
-// Auto Populate Local Storage
-var autoPopulateData = function () {
-    //Actual JSON OBJECT data req.for this to work is coming from data.Json
-    //Store the JO into Local Storage
-    for (var n in items) {
-        id = Math.floor(Math.random() * 100000001);
-        localStorage.setItem(id, JSON.stringify(items[n]));
-    }
-}; // End Auto Populate
 
 
 // Save to local storage
 var storeData = function (data) {
-    if ($('#key').val() == '') {
-        id = Math.floor(Math.random() * 100000001)
+    if ($('#key').val() === '') {
+        id = Math.floor(Math.random() * 100000001);
     } else {
         id = $('#key').val();
     }
@@ -73,12 +99,12 @@ var storeData = function (data) {
         detail.purchased = $('#purchased').val();
         detail.store = $('#store').val();
         detail.cost = $('#cost').val();
-        detail.notes = $('#textArea').val();
+        detail.textArea = $('#textArea').val();
 
     //Save date to loal storage with Stringify to convert object to strings
     localStorage.setItem(id, JSON.stringify(detail));
     alert("Info Saved!");
-    
+    //$('form')[0].reset();
     $.mobile.changePage('#display', null, true, true);
 }; // End Save to Local Storage Function
         
@@ -94,25 +120,6 @@ var clearData = function () {
     }    
 }; // End Clear Local Storage
 
-
-// Delete Item
-var deleteItem = function (id) {
-    var askQ = confirm("Are you sure you want to delete entry?");
-    if (askQ) {
-        localStorage.removeItem(id);
-        location.reload();
-        alert("Info was deleted!");
-    } else {
-        alert("Info was NOT deleted!");
-    }
-}; // End Delete Item
-
-
-// Edit Item
-var editItem = function (keyVal) {
-        localStorage.getItem(keyVal);
-      
-}; // Edit Item
 
                
 // Home Page
@@ -131,7 +138,7 @@ $("#addGift").on('pageinit', function () {
         
         storeData();
       
-        $('form')[0].reset();
+        //$('form')[0].reset();
       
     }); // End submit prevent default
 
@@ -144,7 +151,7 @@ $("#addGift").on('pageinit', function () {
 $("#display").on('pageinit', function () {
  
     
-    // Load Json Data
+     // Load Json Data
    $('#jsonStorage').on('click', function () {
        $.ajax({
            url: "data.json",
@@ -153,7 +160,7 @@ $("#display").on('pageinit', function () {
            success: function (data, status) {
                 console.log(status, data);
                 $('#display').empty();
-                for (i = 0; i< data.items.length; i++) {
+                for (var i = 0; i< data.items.length; i++) {
                     var key = localStorage.key(i);
                     var keyVal = JSON.parse(localStorage.getItem(key));
                     //console.log(data.items[i].purchased[1]);
@@ -164,12 +171,12 @@ $("#display").on('pageinit', function () {
                         "<p>"+data.items[i].purchased[1]+"</p>" +
                         "<p>"+data.items[i].store[1]+"</p>" +
                         "<p>"+data.items[i].cost[1]+"</p>" +
-                        "<p>"+data.items[i].notes[1]+"</p><br>");
+                        "<p>"+data.items[i].textArea[1]+"</p><br>");
                     var makeLink = $("<p id='"+key+"'></p>");
                     makeLink.html(makeLi);
                     makeList.append(makeLink).appendTo("#display");
-                };  
-               $("ul").listview();
+                }
+                $("ul").listview();
         /*   },
            error: function (error, parseerror) {
                console.log(error, parseerror); */
@@ -187,10 +194,10 @@ $("#display").on('pageinit', function () {
            success: function (data, status) {
                console.log(status, data);
                $('#display').empty();
-                for (i = 0; i< items.length; i++) {
+                  for (var i = 0; i< data.items.length; i++){
                     var key = localStorage.key(i);
-                    var keyVal = xml.parse(localStorage.getItem(key));
-                    console.log(data.items[i].purchased[1]);
+                    var keyVal = JSON.parse(localStorage.getItem(key));
+                    //console.log(data.items[i].purchased[1]);
                     var makeList = $("<li></li>");
                     var makeLi = $("<strong>"+items[i].recipient[1]+"</strong>"+
                         "<p>"+items[i].occasion[1]+"</p>"+
@@ -230,35 +237,3 @@ $("#display").on('pageinit', function () {
    }); // End Display Data Link
 
 }); // Display Gifts Page End
-
-
-
-
-/*
-// Error Link / Form Validation
-		var myEntForm = $('#entForm');
-				entErrorLink = $('#entErrorLink');
-				
-		 	myEntForm.validate({
-		 		invalidHandler: function(form, validator){
-		 			entErrorLink.click();
-		 			var htmlString = '';
-		 			for(var key in validator.submitted){
-		 				var label  = $('label[for^="'+ key +'"]').not('[generated]');
-		 				var legend = label.closest('fieldset').find('.ui-controlgroup-label');
-		 				var theFieldName = legend.length ? legend.text() : label.text();
-		 				htmlString += '<li>'+ theFieldName +'</li>';
-		 			};
-		 			$("#addItem2Errors ul" ).html(htmlString);
-		 		},
-		 		submitHandler: function(){
-				  var data = myEntForm.serializeArray();
-				  	storeData(data);
-			 	}
-			});
-		
-
-
-
-*/
-
