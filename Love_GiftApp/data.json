@@ -5,7 +5,7 @@
                 "recipient" :["Recipient :", "Mom"],
                 "occasion" :["Occasion :", "Mother's Day"],
                 "gift" :["Gift :", "Necklace"],
-                "date" :["Date Purchased: ", "2013-07-25"],
+                "purchased" :["Date Purchased: ", "2013-07-25"],
                 "store" :["Store :", "Best Buy"],
                 "cost" :["Cost of Item : ", "$60"],
                 "textArea" :["Notes :", "Bought online"]
@@ -14,7 +14,7 @@
                 "recipient" :["Recipient :", "Leia"],
                 "occasion" :["Occasion :", "Birthday"],
                 "gift" :["Gift :", "Sally's Gift Card"],
-                "date" :["Date Purchased: ", "2013-11-01"],
+                "purchased" :["Date Purchased: ", "2013-11-01"],
                 "store" :["Store :", "Sally's"],
                 "cost" :["Cost of Item : ", "$20"],
                 "textArea" :["Notes :", "n/a"]
@@ -23,7 +23,7 @@
                 "recipient" :["Recipient :", "Paulette"],
                 "occasion" :["Occasion :", "Christmas"],
                 "gift" :["Gift :", "Lotion"],
-                "date" :["Date Purchased: ", "2013-12-01"],
+                "purchased" :["Date Purchased: ", "2013-12-01"],
                 "store" :["Store :", "Bath & Body"],
                 "cost" :["Cost of Item : ", "$10"],
                 "textArea" :["Notes :", "n/a"]
@@ -32,7 +32,7 @@
                 "recipient" :["Recipient :", "AJ & Shawny"],
                 "occasion" :["Occasion :", "Wedding"],
                 "gift" :["Gift :", "Mixing Bowl"],
-                "date" :["Date Purchased: ", "2014-06-04"],
+                "purchased" :["Date Purchased: ", "2014-06-04"],
                 "store" :["Store :", "Macy's"],
                 "cost" :["Cost of Item : ", "$40"],
                 "textArea" :["Notes :", "The day is Finally here!"]
@@ -41,7 +41,7 @@
                 "recipient" :["Recipient :", "Mai Mai"],
                 "occasion" :["Occasion :", "Birthday"],
                 "gift" :["Gift :", "Art Supplies"],
-                "date" :["Date Purchased: ", "2013-05-14"],
+                "purchased" :["Date Purchased: ", "2013-05-14"],
                 "store" :["Store :", "Michael's"],
                 "cost" :["Cost of Item : ", "$7"],
                 "textArea" :["Notes :", "Poster and Markers"]
@@ -50,7 +50,7 @@
                 "recipient" :["Recipient :", "Crystal"],
                 "occasion" :["Occasion :", "Christmas"],
                 "gift" :["Gift :", "Purse"],
-                "date" :["Date Purchased: ", "2013-12-12"],
+                "purchased" :["Date Purchased: ", "2013-12-12"],
                 "store" :["Store :", "Walmart"],
                 "cost" :["Cost of Item : ", "$30"],
                 "textArea" :["Notes :", "n/a"]
@@ -59,25 +59,25 @@
                 "recipient" :["Recipient :", "Mark"],
                 "occasion" :["Occasion :", "Valentine's Day"],
                 "gift" :["Gift :", "Watch"],
-                "date" :["Date Purchased: ", "2014-02-01"],
+                "purchased" :["Date Purchased: ", "2014-02-01"],
                 "store" :["Store :", "Macy's"],
                 "cost" :["Cost of Item : ", "$60"],
-                "textArea" :["Notes :", "30% off sale"]
+               "textArea" :["Notes :", "30% off sale"]
             },
             {
                 "recipient" :["Recipient :", "Autumn"],
                 "occasion" :["Occasion :", "Birthday"],
                 "gift" :["Gift :", "Sweater"],
-                "date" :["Date Purchased: ", "2013-05-14"],
+                "purchased" :["Date Purchased: ", "2013-05-14"],
                 "store" :["Store :", "Amazon"],
                 "cost" :["Cost of Item : ", "$15"],
-                "textArea" :["Notes :", "Sent to her address"]
+                "textArea":["Notes :", "Sent to her address"]
             },
             {
                 "recipient" :["Recipient :", "ALJ"],
                 "occasion" :["Occasion :", "Mother's Day"],
                 "gift" :["Gift :", "Stuffed Giraffe"],
-                "date" :["Date Purchased: ", "2013-05-03"],
+                "purchased" :["Date Purchased: ", "2013-05-03"],
                 "store" :["Store :", "Target"],
                 "cost" :["Cost of Item : ", "$25"],
                 "textArea" :["Notes :", "online...able to return in store"]
@@ -86,7 +86,7 @@
                 "recipient" :["Recipient :", "Sha"],
                 "occasion" :["Occasion :", "Just Because"],
                 "gift" :["Gift :", "Tablet"],
-                "date" :["Date Purchased: ", "2013-12-07"],
+                "purchased" :["Date Purchased: ", "2013-12-07"],
                 "store" :["Store :", "Craigslist"],
                 "cost" :["Cost of Item : ", "$220"],
                 "textArea" :["Notes :", "Tablet and charger only"]

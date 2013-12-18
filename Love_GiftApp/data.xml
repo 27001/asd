@@ -8,7 +8,7 @@
         <purchased>2013-07-25</purchased>
         <store>Best Buy</store>
         <cost>$60</cost>
-        <notes>Bought Online</notes>
+        <textArea>Bought Online</textArea>
     </item>
     <item>
         <recipient>Leia</recipient>
@@ -17,7 +17,7 @@
         <purchased>2013-11-01</purchased>
         <store>Sally's</store>
         <cost>$20</cost>
-        <notes>n/a</notes>
+        <textArea>n/a</textArea>
     </item>
     <item>
         <recipient>Jess</recipient>
@@ -26,7 +26,7 @@
         <purchased>2013-12-01</purchased>
         <store>Bath and Body</store>
         <cost>$10</cost>
-        <notes>n/a</notes>
+        <textArea>n/a</textArea>
     </item>
     <item>
         <recipient>AJ and Shawny</recipient>
@@ -35,7 +35,7 @@
         <purchased>2013-06-04</purchased>
         <store>Macy's</store>
         <cost>$40</cost>
-        <notes>The day is Finally here!</notes>
+        <textArea>The day is Finally here!</textArea>
     </item>
     <item>
         <recipient>Mai Mai</recipient>
@@ -44,7 +44,7 @@
         <purchased>2013-05-14</purchased>
         <store>Michael's</store>
         <cost>$7</cost>
-        <notes>Poster and Markers</notes>
+        <textArea>Poster and Markers</textArea>
     </item>
      <item>
         <recipient>Crystal</recipient>
@@ -53,7 +53,7 @@
         <purchased>2013-12-12</purchased>
         <store>Walmart</store>
         <cost>$30</cost>
-        <notes>n/a</notes>
+        <textArea>n/a</textArea>
     </item>
     <item>
         <recipient>Mark</recipient>
@@ -62,7 +62,7 @@
         <purchased>2013-02-01</purchased>
         <store>Macy's</store>
         <cost>$60</cost>
-        <notes>30% off sale</notes>
+        <textArea>30% off sale</textArea>
     </item>
     <item>
         <recipient>Autumn</recipient>
@@ -71,7 +71,7 @@
         <purchased>2013-05-14</purchased>
         <store>Amazon</store>
         <cost>$15</cost>
-        <notes>Sent Directly to address</notes>
+        <textArea>Sent Directly to address</textArea>
     </item>
     <item>
         <recipient>ALJ</recipient>
@@ -80,7 +80,7 @@
         <purchased>2013-05-03</purchased>
         <store>Target</store>
         <cost>$25</cost>
-        <notes>bought online, but able to return in store</notes>
+        <textArea>bought online, but able to return in store</textArea>
     </item>
     <item>
         <recipient>Sha</recipient>
@@ -89,7 +89,7 @@
         <purchased>2013-12-07</purchased>
         <store>Craigslist</store>
         <cost>$220</cost>
-        <notes>Tablet and Charger only</notes>
+        <textArea>Tablet and Charger only</textArea>
     </item>
 </items>
 
