@@ -1,0 +1,10 @@
+{
+  "env": {
+    "local": {
+      "db": "http://tlove:palmpre@127.0.0.1:5984/giftgiver"
+    },
+    "cloudant": {
+      "db": "http://tlove:palmpre@tlove.cloudant.com/giftgiver"
+    }
+  }
+}

@@ -9,10 +9,10 @@ var jsnObj = JSON.parse(keyVal);
 
 
 // Delete Item
-var deleteItem = function () {
+var deleteItem = function (id) {
     var askQ = confirm("Are you sure you want to delete entry?");
     if (askQ) {
-        localStorage.removeItem(this.key);
+        localStorage.removeItem(id);
         location.reload();
         alert("Info was deleted!");
     } else {
@@ -22,67 +22,23 @@ var deleteItem = function () {
 
 
 // Edit Item
-var editItem = function (keyVal) {
-        localStorage.getItem(keyVal);
+var editItem = function (id) {
+    console.log('hello there');
+        localStorage.getItem(id);
         //editItem.key = this.key;
 }; // Edit Item
 
 
-// Auto Populate Local Storage
+/* Auto Populate Local Storage
 var autoPopulateData = function () {
     //Actual JSON OBJECT data req.for this to work is coming from data.Json
     //Store the JO into Local Storage
     for (var n in items) {
         id = Math.floor(Math.random() * 100000001);
-        localStorage.setItem(id, JSON.stringify(items[n]));
+        localStorage.setItem(id, JSON.stringify(items));
     }
 }; // End Auto Populate
-
-
-// Get/Display Data
-var getTheData = function () {
-    if (localStorage.length === 0) {
-        alert("There is no data in Local Storage, so default data was added.");
-        autoPopulateData();
-    }
-    for (var i = 0, ls = localStorage.length; i < ls; i++) {
-        var key = localStorage.key(i);
-        var keyVal = localStorage.getItem(key);
-        var jsnObj = JSON.parse(keyVal);
-        for (var n in jsnObj) {
-            var newObj = jsnObj[n];
-            $('#display').append(newObj + "<br />");
-        }
-        $('#display').append(key + " " + '<br />');
-        $('#display').append('<a href="#" class="edit" data-key="' + key + '">Edit<a/> | <a href="#" class="delete data-key"' + key + '">Delete</a><br><br>');
-    }
-    
-    // Delete Item Link
-   $('.delete').on('click', function(e) {
-       e.preventDefault();
-       //var id = $(this).data('key');
-       //$('span#key').text(key);
-       deleteItem();
-    }); // End Delete Item Link
-   
-    // Edit Item Link
-    $('.edit').on('click', function(e){
-        e.preventDefault();
-        
-        console.log('edit is clicked');
-        var id = $(this).data('key');
-        
-        console.log(keyVal);
-        
-        $('span#key').text(key);
-        editItem(keyVal);
-    }); // End Edit Item Link
-   
-    
-}; // End Get Local Data
-
-
-
+*/
 
 // Save to local storage
 var storeData = function (data) {
@@ -107,8 +63,49 @@ var storeData = function (data) {
     //$('form')[0].reset();
     $.mobile.changePage('#display', null, true, true);
 }; // End Save to Local Storage Function
-        
-        
+
+
+// Get/Display Data
+var getTheData = function () {
+    if (localStorage.length === 0) {
+        alert("There is no data in Local Storage.");
+        //autoPopulateData();
+    }
+    for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        var keyVal = localStorage.getItem(key);
+        var jsnObj = JSON.parse(keyVal);
+        for (var n in jsnObj) {
+            var newObj = jsnObj[n];
+            $('#display').append(newObj + "<br />");
+        }
+        $('#display').append(key + " " + '<br />');
+        $('#display').append('<a href="#" class="edit" data-key="' + key + '">Edit</a> | <a href="#" class="delete" data-key="' + key + '">Delete</a><br><br>');
+    }
+    
+    // Delete Item Link
+   $('.delete').on('click', function(e) {
+       e.preventDefault();
+       var id = $(this).data('key');
+       $('span#key').text(key);
+       deleteItem(id);
+    }); // End Delete Item Link
+   
+   
+     // Edit Item Link
+    $('.edit').on('click', function(e) {
+        e.preventDefault();
+        var id = $(this).data('key');
+        console.log('testinggggg');
+        localStorage.removeItem(key);
+        $('span#key').text(key);
+        editItem();
+    }); // End Edit Item Link
+   
+    
+}; // End Get Local Data
+
+               
 // Clear Local Storage
 var clearData = function () {
     if (localStorage.length === 0) {
@@ -163,7 +160,6 @@ $("#display").on('pageinit', function () {
                 for (var i = 0; i< data.items.length; i++) {
                     var key = localStorage.key(i);
                     var keyVal = JSON.parse(localStorage.getItem(key));
-                    //console.log(data.items[i].purchased[1]);
                     var makeList = $("<li></li>");
                     var makeLi = $("<strong>"+data.items[i].recipient[1]+"</strong>"+
                         "<p>"+data.items[i].occasion[1]+"</p>"+
@@ -175,11 +171,12 @@ $("#display").on('pageinit', function () {
                     var makeLink = $("<p id='"+key+"'></p>");
                     makeLink.html(makeLi);
                     makeList.append(makeLink).appendTo("#display");
-                }
-                $("ul").listview();
-        /*   },
+                }  
+                $("ul").listview(); 
+                   
+           },
            error: function (error, parseerror) {
-               console.log(error, parseerror); */
+               console.log(error, parseerror); 
            }
        });
    }); // End Load JSON Data
@@ -194,13 +191,13 @@ $("#display").on('pageinit', function () {
            success: function (data, status) {
                console.log(status, data);
                $('#display').empty();
-                  for (var i = 0; i< data.items.length; i++){
+                  for (var i = 0; i< items.length; i++){
                     var key = localStorage.key(i);
-                    var keyVal = JSON.parse(localStorage.getItem(key));
+                    var keyVal = xmlDoc.parse(localStorage.getItem(key));
                     //console.log(data.items[i].purchased[1]);
                     var makeList = $("<li></li>");
                     var makeLi = $("<strong>"+items[i].recipient[1]+"</strong>"+
-                        "<p>"+items[i].occasion[1]+"</p>"+
+                        "<p>"+data.items[i].occasion[1]+"</p>"+
                         "<p>"+items[i].gift[1]+"</p>" +
                         "<p>"+items[i].purchased[1]+"</p>" +
                         "<p>"+items[i].store[1]+"</p>" +
@@ -211,9 +208,9 @@ $("#display").on('pageinit', function () {
                     makeList.append(makeLink).appendTo("#display");
                 };  
                $("ul").listview();
-         /*  },
+           },
            error: function (error, parseerror) {
-               console.log(error, parseerror); */
+               console.log(error, parseerror); 
            }
        });
    }); // End Load XML Data
