@@ -148,48 +148,84 @@ $("#addGift").on('pageinit', function () {
 $("#display").on('pageinit', function () {
  
     
-     // Load Json Data
-   $('#jsonStorage').on('click', function () {
-       $.ajax({
+    // Load Json Data
+    $('#jsonStorage').on('click', function () {
+    $.mobile.changePage('#giftList')
+        $.ajax({
            url: "data.json",
            type: "GET",
            dataType: "json",
            success: function (data, status) {
-                console.log(status, data);
-                $('#display').empty();
+                $('#giftList').empty();
+                $("<h3>** JSON DATA **</h3>").appendTo('#giftList');
                 for (var i = 0; i< data.items.length; i++) {
-                    var key = localStorage.key(i);
-                    var keyVal = JSON.parse(localStorage.getItem(key));
+                    //var key = localStorage.key(i);
+                    //var keyVal = JSON.parse(localStorage.getItem(key));
                     var makeList = $("<li></li>");
-                    var makeLi = $("<strong>"+data.items[i].recipient[1]+"</strong>"+
-                        "<p>"+data.items[i].occasion[1]+"</p>"+
-                        "<p>"+data.items[i].gift[1]+"</p>" +
-                        "<p>"+data.items[i].purchased[1]+"</p>" +
-                        "<p>"+data.items[i].store[1]+"</p>" +
-                        "<p>"+data.items[i].cost[1]+"</p>" +
-                        "<p>"+data.items[i].textArea[1]+"</p><br>");
+                    var makeLi = $('<div>'+
+                        "<p>..<strong>Recipient : </strong>"+data.items[i].recipient[1]+"</p>"+
+                        "<p>..<strong>Occasion : </strong>"+data.items[i].occasion[1]+"</p>"+
+                        "<p>..<strong>Gift : </strong>"+data.items[i].gift[1]+"</p>" +
+                        "<p>..<strong>Date Purchased : </strong> "+data.items[i].purchased[1]+"</p>" +
+                        "<p>..<strong>Store : </strong>"+data.items[i].store[1]+"</p>" +
+                        "<p>..<strong>Cost : </strong>"+data.items[i].cost[1]+"</p>" +
+                        "<p>..<strong>Notes : </strong>"+data.items[i].textArea[1]+"</p>"+
+                        '</div><br>')
                     var makeLink = $("<p id='"+key+"'></p>");
                     makeLink.html(makeLi);
-                    makeList.append(makeLink).appendTo("#display");
+                    makeList.append(makeLink).appendTo("#giftList");
                 }  
-                $("ul").listview(); 
+                //$("ul").listview(); 
                    
            },
            error: function (error, parseerror) {
                console.log(error, parseerror); 
            }
-       });
-   }); // End Load JSON Data
+        });   
+    });
+         
   
   
    // Load XML Data
    $('#xmlStorage').on('click', function () {
-       $.ajax({
+        $('#giftList').empty();
+        $.ajax({
            url: "data.xml",
            type: "GET",
            dataType: "xml",
            success: function (data, status) {
-               console.log(status, data);
+                console.log('i was clicked');
+                $('#giftList').append("<h3>** XML DATA **</h3>");
+                //for (var i = 0; i< data.items.length; i++) {
+                    //var key = localStorage.key(i);
+                    //var keyVal = JSON.parse(localStorage.getItem(key));
+                    var makeList = $("<li></li>");
+                     console.log('the list' + makeList);
+                    var makeLi = $('<div></div><br>');
+                    console.log('the second list' + makeLi);
+                    //$(data).find("recipient").each(function(){
+                        $('#giftList').append("<p>..<strong>Recipient : </strong>" + $(this).find("recipient").text() + "</p>");
+                        $('#giftList').append("<p>..<strong>Occasion : </strong>" + $(this).find("recipient").text() + "</p>");
+                        $('#giftList').append("<p>..<strong>Gift : </strong>" + $(this).find("recipient").text() + "</p>");
+                        $('#giftList').append("<p>..<strong>Date Purchased : </strong> " + $(this).find("recipient").text() + "</p>");
+                        $('#giftList').append("<p>..<strong>Store : </strong>" + $(this).find("recipient").text() + "</p>");
+                        $('#giftList').append("<p>..<strong>Cost : </strong>" + $(this).find("recipient").text() + "</p>");
+                        $('#giftList').append("<p>..<strong>Notes : </strong>" + $(this).find("recipient").text() + "</p>");
+                        //'</div><br>')
+                    var makeLink = $("<p id='"+key+"'></p>");
+                    console.log('now im here' + makeList);
+                    makeLink.html(makeLi);
+                    makeList.append(makeLink).appendTo("#giftList");
+                //}  
+                //$("ul").listview(); 
+                //});   
+           },
+           error: function (error, parseerror) {
+               console.log(error, parseerror); 
+           }
+        });   
+    });
+              /* console.log(status, data);
                $('#display').empty();
                   for (var i = 0; i< items.length; i++){
                     var key = localStorage.key(i);
@@ -214,7 +250,7 @@ $("#display").on('pageinit', function () {
            }
        });
    }); // End Load XML Data
-   
+   */
    
    
    // Clear Stored Data Link
